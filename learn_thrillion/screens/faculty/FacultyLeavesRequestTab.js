@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import {
   View,
   Text,
@@ -9,6 +9,7 @@ import {
   ActivityIndicator,
   Alert,
   KeyboardAvoidingView,
+  Keyboard,
   Platform,
 } from 'react-native';
 import { Dropdown } from 'react-native-element-dropdown';
@@ -39,7 +40,12 @@ function labelForLeaveType(v) {
   return LEAVE_TYPES.find((t) => t.value === v)?.label || v || '—';
 }
 
+/** Space for absolute faculty bottom nav (height + margins). */
+const BOTTOM_NAV_CLEARANCE = 120;
+
 export default function FacultyLeavesRequestTab({ onSuccess }) {
+  const scrollRef = useRef(null);
+  const [keyboardHeight, setKeyboardHeight] = useState(0);
   const [summaryLoading, setSummaryLoading] = useState(true);
   const [summary, setSummary] = useState(null);
   const [leaveType, setLeaveType] = useState('casual');
@@ -64,6 +70,29 @@ export default function FacultyLeavesRequestTab({ onSuccess }) {
   useEffect(() => {
     loadSummary();
   }, [loadSummary]);
+
+  useEffect(() => {
+    const showEvent = Platform.OS === 'ios' ? 'keyboardWillShow' : 'keyboardDidShow';
+    const hideEvent = Platform.OS === 'ios' ? 'keyboardWillHide' : 'keyboardDidHide';
+
+    const showSub = Keyboard.addListener(showEvent, (event) => {
+      setKeyboardHeight(event.endCoordinates?.height ?? 0);
+    });
+    const hideSub = Keyboard.addListener(hideEvent, () => {
+      setKeyboardHeight(0);
+    });
+
+    return () => {
+      showSub.remove();
+      hideSub.remove();
+    };
+  }, []);
+
+  const scrollReasonIntoView = () => {
+    setTimeout(() => {
+      scrollRef.current?.scrollToEnd({ animated: true });
+    }, Platform.OS === 'ios' ? 280 : 120);
+  };
 
   const handleSubmit = async () => {
     if (!dateFrom || !dateTo) {
@@ -108,9 +137,14 @@ export default function FacultyLeavesRequestTab({ onSuccess }) {
     <KeyboardAvoidingView
       style={styles.flex}
       behavior={Platform.OS === 'ios' ? 'padding' : undefined}
+      keyboardVerticalOffset={Platform.OS === 'ios' ? 112 : 0}
     >
       <ScrollView
-        contentContainerStyle={styles.scroll}
+        ref={scrollRef}
+        contentContainerStyle={[
+          styles.scroll,
+          { paddingBottom: BOTTOM_NAV_CLEARANCE + keyboardHeight + 24 },
+        ]}
         keyboardShouldPersistTaps="handled"
         showsVerticalScrollIndicator={false}
       >
@@ -194,6 +228,7 @@ export default function FacultyLeavesRequestTab({ onSuccess }) {
             numberOfLines={4}
             value={reason}
             onChangeText={setReason}
+            onFocus={scrollReasonIntoView}
             placeholder="Describe the reason for your leave"
             placeholderTextColor="#94a3b8"
             textAlignVertical="top"
@@ -218,7 +253,7 @@ export default function FacultyLeavesRequestTab({ onSuccess }) {
 
 const styles = StyleSheet.create({
   flex: { flex: 1 },
-  scroll: { padding: 12, paddingBottom: 24 },
+  scroll: { padding: 12, paddingBottom: 24, flexGrow: 1 },
   card: {
     backgroundColor: '#fff',
     borderRadius: 16,

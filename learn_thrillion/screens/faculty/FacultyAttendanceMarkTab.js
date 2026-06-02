@@ -19,6 +19,8 @@ import {
   fetchStudentsByClassSection,
   submitAttendanceSession,
 } from '../../utils/schoolApi';
+import { useAuth } from '../../context/AuthContext';
+import { ROLES } from '../../constants/roles';
 
 export function todayISO() {
   const d = new Date();
@@ -39,6 +41,8 @@ function formatApiError(err) {
 
 /** Mark attendance form (embedded under Attendance tabs). */
 export default function FacultyAttendanceMarkTab() {
+  const { user } = useAuth();
+  const isClassTeacher = Number(user?.role) === ROLES.CLASS_TEACHER;
   const [classes, setClasses] = useState([]);
   const [sections, setSections] = useState([]);
   const [students, setStudents] = useState([]);
@@ -59,8 +63,14 @@ export default function FacultyAttendanceMarkTab() {
       setLoadingClasses(true);
       setListError('');
       try {
-        const data = await fetchSchoolClasses();
-        if (!cancelled) setClasses(Array.isArray(data) ? data : []);
+        const data = await fetchSchoolClasses({ forAttendance: true });
+        const list = Array.isArray(data) ? data : [];
+        if (!cancelled) {
+          setClasses(list);
+          if (list.length === 1) {
+            setSelectedClass(String(list[0].id));
+          }
+        }
       } catch (e) {
         if (!cancelled) setListError(formatApiError(e));
       } finally {
@@ -83,7 +93,7 @@ export default function FacultyAttendanceMarkTab() {
       setLoadingSections(true);
       setListError('');
       try {
-        const data = await fetchSectionsByClass(selectedClass);
+        const data = await fetchSectionsByClass(selectedClass, { forAttendance: true });
         if (!cancelled) {
           setSections(Array.isArray(data) ? data : []);
           setSelectedSection(null);
@@ -209,20 +219,32 @@ export default function FacultyAttendanceMarkTab() {
         <View style={styles.card}>
           {loadingClasses ? (
             <ActivityIndicator color="#15803d" style={{ marginVertical: 12 }} />
+          ) : classItems.length === 0 ? (
+            <Text style={styles.empty}>
+              {isClassTeacher
+                ? 'No class is assigned to you as class teacher. Ask your school admin to assign you on the faculty profile.'
+                : 'No classes found for your school.'}
+            </Text>
           ) : (
             <View style={styles.field}>
               <Text style={styles.label}>Class</Text>
-              <Dropdown
-                style={styles.dropdown}
-                placeholderStyle={styles.ph}
-                selectedTextStyle={styles.sel}
-                data={classItems}
-                labelField="label"
-                valueField="value"
-                placeholder="Select class"
-                value={selectedClass}
-                onChange={(item) => setSelectedClass(item.value)}
-              />
+              {isClassTeacher && classItems.length === 1 ? (
+                <View style={styles.readOnlyClass}>
+                  <Text style={styles.readOnlyClassText}>{classItems[0].label}</Text>
+                </View>
+              ) : (
+                <Dropdown
+                  style={styles.dropdown}
+                  placeholderStyle={styles.ph}
+                  selectedTextStyle={styles.sel}
+                  data={classItems}
+                  labelField="label"
+                  valueField="value"
+                  placeholder="Select class"
+                  value={selectedClass}
+                  onChange={(item) => setSelectedClass(item.value)}
+                />
+              )}
             </View>
           )}
 
@@ -330,7 +352,7 @@ const styles = StyleSheet.create({
   scroll: { flex: 1 },
   scrollContent: {
     paddingHorizontal: 16,
-    paddingBottom: 24,
+    paddingBottom: 120,
   },
   banner: {
     backgroundColor: '#fef3c7',
@@ -374,6 +396,17 @@ const styles = StyleSheet.create({
   },
   ph: { fontSize: 15, color: '#9ca3af' },
   sel: { fontSize: 15, color: '#111' },
+  readOnlyClass: {
+    minHeight: 48,
+    borderColor: '#d1d5db',
+    borderWidth: 1,
+    borderRadius: 10,
+    paddingHorizontal: 12,
+    paddingVertical: 12,
+    backgroundColor: '#f3f4f6',
+    justifyContent: 'center',
+  },
+  readOnlyClassText: { fontSize: 15, color: '#111827', fontWeight: '600' },
   sessionRow: {
     flexDirection: 'row',
     gap: 10,

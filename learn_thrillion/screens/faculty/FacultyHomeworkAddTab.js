@@ -55,7 +55,7 @@ export default function FacultyHomeworkAddTab({ onSuccess }) {
         const [years, cls, subs] = await Promise.all([
           fetchAcademicYearsSchool(),
           fetchSchoolClasses(),
-          fetchSchoolSubjects(),
+          fetchSchoolSubjects({ assignedOnly: true }),
         ]);
         if (cancelled) return;
         setAcademicYears(Array.isArray(years) ? years : []);
@@ -247,10 +247,14 @@ export default function FacultyHomeworkAddTab({ onSuccess }) {
           data={subjectItems}
           labelField="label"
           valueField="value"
-          placeholder="Select subject"
+          placeholder={subjectItems.length ? 'Select subject' : 'No subjects — update faculty profile'}
           value={selectedSubject}
+          disable={subjectItems.length === 0}
           onChange={(item) => setSelectedSubject(item?.value || null)}
         />
+        {subjectItems.length === 0 ? (
+          <Text style={styles.muted}>Ask your admin to assign subjects on your faculty profile.</Text>
+        ) : null}
 
         {filtersComplete ? (
           <>

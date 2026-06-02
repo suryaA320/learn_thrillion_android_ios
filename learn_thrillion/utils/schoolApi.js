@@ -7,13 +7,16 @@ export function apiOriginPath(path) {
   return `${base}${p}`;
 }
 
-export function fetchSchoolClasses() {
-  return api.get(apiOriginPath('/view-all-classes-by-school-id/')).then((r) => r.data);
+export function fetchSchoolClasses({ forAttendance = false } = {}) {
+  const params = forAttendance ? { for_attendance: 'true' } : {};
+  return api.get(apiOriginPath('/view-all-classes-by-school-id/'), { params }).then((r) => r.data);
 }
 
-export function fetchSectionsByClass(classId) {
+export function fetchSectionsByClass(classId, { forAttendance = false } = {}) {
   if (!classId) return Promise.resolve([]);
-  return api.get(apiOriginPath('/filter-sections/'), { params: { class_id: classId } }).then((r) => r.data);
+  const params = { class_id: classId };
+  if (forAttendance) params.for_attendance = 'true';
+  return api.get(apiOriginPath('/filter-sections/'), { params }).then((r) => r.data);
 }
 
 export function fetchStudentsByClassSection(classId, sectionId) {
@@ -82,8 +85,9 @@ export function updateFacultyActionPlan(planId, body) {
 }
 
 /** GET `/subjects/view/` — subjects for the logged-in user's school. */
-export function fetchSchoolSubjects() {
-  return api.get(apiOriginPath('/subjects/view/')).then((r) => r.data);
+export function fetchSchoolSubjects({ assignedOnly = false } = {}) {
+  const params = assignedOnly ? { assigned_to_me: 'true' } : {};
+  return api.get(apiOriginPath('/subjects/view/'), { params }).then((r) => r.data);
 }
 
 export function fetchFacultyHomework(params = {}) {

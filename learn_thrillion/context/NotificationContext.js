@@ -103,6 +103,11 @@ export function NotificationProvider({ children }) {
         navigateFromNotification({ kind: 'ticket_message', ticket_id: notif.ticket_id });
       } else if (notif.kind === 'assigned_task') {
         navigateFromNotification({ kind: 'assigned_task' });
+      } else if (
+        notif.kind === 'faculty_leave_decision' ||
+        notif.kind === 'faculty_leave_request'
+      ) {
+        navigateFromNotification({ kind: notif.kind });
       }
     },
     [closePanel, loadUnreadList, refreshUnread]

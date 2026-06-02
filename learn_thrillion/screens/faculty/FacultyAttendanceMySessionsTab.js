@@ -130,7 +130,7 @@ export default function FacultyAttendanceMySessionsTab({ active }) {
 
 const styles = StyleSheet.create({
   scroll: { flex: 1 },
-  scrollContent: { paddingHorizontal: 16, paddingBottom: 24 },
+  scrollContent: { paddingHorizontal: 16, paddingBottom: 120 },
   centered: {
     flex: 1,
     justifyContent: 'center',

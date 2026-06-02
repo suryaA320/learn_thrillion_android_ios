@@ -16,4 +16,8 @@ export function navigateFromNotification(data) {
     navigationRef.navigate('FacultyHome');
     return;
   }
+  if (kind === 'faculty_leave_decision' || kind === 'faculty_leave_request') {
+    navigationRef.navigate('FacultyLeaves');
+    return;
+  }
 }
