@@ -137,6 +137,59 @@ export function fetchStudentProgress(examId) {
     .then((r) => r.data);
 }
 
+/** List students linked to the logged-in parent (`GET /parent/my-children/`). */
+export function fetchParentMyChildren() {
+  return api.get(apiOriginPath('/parent/my-children/')).then((r) => r.data);
+}
+
+export function fetchParentStudentContext(studentId) {
+  return api
+    .get(apiOriginPath('/parent/student-context/'), {
+      params: { student_id: String(studentId) },
+    })
+    .then((r) => r.data);
+}
+
+export function fetchParentHomework(studentId, params = {}) {
+  return api
+    .get(apiOriginPath('/parent/homework/'), {
+      params: { student_id: String(studentId), ...params },
+    })
+    .then((r) => r.data);
+}
+
+export function fetchParentComplaints(studentId) {
+  return api
+    .get(apiOriginPath('/parent/complaints/'), {
+      params: { student_id: String(studentId) },
+    })
+    .then((r) => r.data);
+}
+
+export function fetchParentExams(studentId) {
+  return api
+    .get(apiOriginPath('/parent/exams/'), {
+      params: { student_id: String(studentId) },
+    })
+    .then((r) => r.data);
+}
+
+export function fetchParentProgress(studentId, examId) {
+  return api
+    .get(apiOriginPath('/parent/progress/'), {
+      params: { student_id: String(studentId), exam_id: String(examId) },
+    })
+    .then((r) => r.data);
+}
+
+export function fetchParentFees(studentId) {
+  return api
+    .get(apiOriginPath('/parent/fees/'), {
+      params: { student_id: String(studentId) },
+    })
+    .then((r) => r.data);
+}
+
 /** Faculty leave balance for active academic year (`GET /faculty/leave-requests/summary/`). School-scoped via faculty profile. */
 export function fetchFacultyLeaveSummary() {
   return api.get(apiOriginPath('/faculty/leave-requests/summary/')).then((r) => r.data);
