@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { ParentPortalProvider } from '../context/ParentPortalContext';
 import ParentHome from '../screens/parent/ParentHome';
@@ -11,7 +11,7 @@ import ParentProfile from '../screens/parent/ParentProfile';
 const Stack = createNativeStackNavigator();
 
 const screenOptions = {
-  headerStyle: { backgroundColor: '#0d9488' },
+  headerStyle: { backgroundColor: '#4f46e5' },
   headerTintColor: '#fff',
   headerTitleStyle: { fontWeight: 'bold' },
   cardStyle: { backgroundColor: '#f2f2f2' },

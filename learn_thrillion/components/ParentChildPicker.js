@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+﻿import React, { useMemo } from 'react';
 import { View, Text, StyleSheet, ActivityIndicator } from 'react-native';
 import { Dropdown } from 'react-native-element-dropdown';
 import { useParentPortal } from '../context/ParentPortalContext';
@@ -27,7 +27,7 @@ export default function ParentChildPicker() {
       <View style={styles.wrap}>
         <Text style={styles.label}>Select child</Text>
         <View style={styles.loadingRow}>
-          <ActivityIndicator size="small" color="#0f766e" />
+          <ActivityIndicator size="small" color="#4f46e5" />
           <Text style={styles.loadingText}>Loading linked children…</Text>
         </View>
       </View>
@@ -71,7 +71,7 @@ export default function ParentChildPicker() {
           selectedTextStyle={styles.selectedText}
           containerStyle={styles.dropdownContainer}
           itemTextStyle={styles.itemText}
-          activeColor="#ccfbf1"
+          activeColor="#e0e7ff"
           data={items}
           labelField="label"
           valueField="value"
@@ -97,13 +97,13 @@ const styles = StyleSheet.create({
     borderRadius: 14,
     padding: 12,
     borderWidth: 1,
-    borderColor: '#99f6e4',
+    borderColor: '#c7d2fe',
     zIndex: 50,
   },
   label: {
     fontSize: 12,
     fontWeight: '700',
-    color: '#0f766e',
+    color: '#4f46e5',
     marginBottom: 8,
     textTransform: 'uppercase',
     letterSpacing: 0.5,
@@ -116,14 +116,14 @@ const styles = StyleSheet.create({
     minHeight: 48,
     borderRadius: 10,
     borderWidth: 1,
-    borderColor: '#5eead4',
-    backgroundColor: '#f0fdfa',
+    borderColor: '#a5b4fc',
+    backgroundColor: '#f5f3ff',
     paddingHorizontal: 12,
   },
   dropdownContainer: {
     borderRadius: 10,
     borderWidth: 1,
-    borderColor: '#99f6e4',
+    borderColor: '#c7d2fe',
     marginTop: 4,
   },
   placeholder: {
@@ -132,17 +132,17 @@ const styles = StyleSheet.create({
   },
   selectedText: {
     fontSize: 15,
-    color: '#134e4a',
+    color: '#3730a3',
     fontWeight: '600',
   },
   itemText: {
     fontSize: 14,
-    color: '#134e4a',
+    color: '#3730a3',
   },
   singleName: {
     fontSize: 15,
     fontWeight: '700',
-    color: '#134e4a',
+    color: '#3730a3',
     lineHeight: 22,
   },
   loadingRow: {

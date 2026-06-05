@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react';
+﻿import React, { useEffect, useMemo, useState } from 'react';
 import {
   View,
   Text,
@@ -174,7 +174,7 @@ export default function FacultyHomeworkAddTab({ onSuccess }) {
   if (loadingBoot) {
     return (
       <View style={styles.centered}>
-        <ActivityIndicator size="large" color="#15803d" />
+        <ActivityIndicator size="large" color="#4f46e5" />
         <Text style={styles.muted}>Loading…</Text>
       </View>
     );
@@ -278,7 +278,14 @@ export default function FacultyHomeworkAddTab({ onSuccess }) {
               textAlignVertical="top"
             />
 
-            <Button mode="contained" onPress={submit} loading={submitting} disabled={submitting} style={styles.btn}>
+            <Button
+              mode="contained"
+              onPress={submit}
+              loading={submitting}
+              disabled={submitting}
+              buttonColor="#4f46e5"
+              style={styles.btn}
+            >
               Submit
             </Button>
           </>
@@ -305,10 +312,10 @@ const styles = StyleSheet.create({
     marginBottom: 12,
     fontSize: 13,
   },
-  lbl: { fontSize: 13, fontWeight: '600', color: '#14532d', marginTop: 10, marginBottom: 4 },
+  lbl: { fontSize: 13, fontWeight: '600', color: '#3730a3', marginTop: 10, marginBottom: 4 },
   dd: {
     borderWidth: 1,
-    borderColor: '#bbf7d0',
+    borderColor: '#c7d2fe',
     borderRadius: 12,
     paddingHorizontal: 12,
     paddingVertical: 10,
@@ -319,7 +326,7 @@ const styles = StyleSheet.create({
   ddSel: { fontSize: 14, color: '#111827' },
   input: {
     borderWidth: 1,
-    borderColor: '#bbf7d0',
+    borderColor: '#c7d2fe',
     borderRadius: 12,
     paddingHorizontal: 12,
     paddingVertical: 10,
@@ -330,7 +337,7 @@ const styles = StyleSheet.create({
   textarea: {
     minHeight: 140,
     borderWidth: 1,
-    borderColor: '#bbf7d0',
+    borderColor: '#c7d2fe',
     borderRadius: 12,
     padding: 12,
     fontSize: 15,

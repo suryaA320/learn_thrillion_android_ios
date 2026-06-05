@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useMemo, useState } from 'react';
+﻿import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import {
   View,
   Text,
@@ -15,7 +15,7 @@ import ParentChildPicker from '../../components/ParentChildPicker';
 import { fetchParentHomework } from '../../utils/schoolApi';
 import { useParentPortal } from '../../context/ParentPortalContext';
 
-const ACCENT = '#0f766e';
+const ACCENT = '#4f46e5';
 
 function formatApiError(err) {
   const d = err?.response?.data;
@@ -180,7 +180,7 @@ export default function ParentDiaryScreen() {
 }
 
 const styles = StyleSheet.create({
-  safe: { flex: 1, backgroundColor: '#f0fdfa' },
+  safe: { flex: 1, backgroundColor: '#f5f3ff' },
   flex: { flex: 1 },
   scroll: { flex: 1 },
   scrollContent: { paddingHorizontal: 16, paddingBottom: 120 },
@@ -193,7 +193,7 @@ const styles = StyleSheet.create({
     borderRadius: 14,
     padding: 14,
     borderWidth: 1,
-    borderColor: '#99f6e4',
+    borderColor: '#c7d2fe',
   },
   topCardTitle: { fontSize: 13, fontWeight: '700', color: ACCENT, marginBottom: 8 },
   hint: { fontSize: 12, color: '#64748b', marginBottom: 10, lineHeight: 18 },
@@ -210,9 +210,9 @@ const styles = StyleSheet.create({
     borderRadius: 14,
     padding: 20,
     borderWidth: 1,
-    borderColor: '#ccfbf1',
+    borderColor: '#e0e7ff',
   },
-  emptyTitle: { fontSize: 16, fontWeight: '700', color: '#134e4a' },
+  emptyTitle: { fontSize: 16, fontWeight: '700', color: '#3730a3' },
   emptySub: { marginTop: 6, fontSize: 13, color: '#64748b', lineHeight: 18 },
   row: {
     flexDirection: 'row',
@@ -220,17 +220,17 @@ const styles = StyleSheet.create({
     borderRadius: 14,
     marginBottom: 10,
     borderWidth: 1,
-    borderColor: '#ccfbf1',
+    borderColor: '#e0e7ff',
     overflow: 'hidden',
   },
   colLeft: {
     width: '38%',
-    backgroundColor: '#ccfbf1',
+    backgroundColor: '#e0e7ff',
     padding: 12,
     justifyContent: 'center',
   },
   colRight: { flex: 1, padding: 12, justifyContent: 'center' },
-  subjectName: { fontSize: 14, fontWeight: '800', color: '#134e4a' },
+  subjectName: { fontSize: 14, fontWeight: '800', color: '#3730a3' },
   homeworkText: { fontSize: 13, color: '#374151', lineHeight: 19 },
   noHomework: { fontSize: 13, color: '#94a3b8', fontStyle: 'italic' },
 });

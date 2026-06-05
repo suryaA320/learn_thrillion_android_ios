@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+﻿import React, { useCallback, useEffect, useState } from 'react';
 import {
   View,
   Text,
@@ -16,7 +16,7 @@ import ParentChildPicker from '../../components/ParentChildPicker';
 import { fetchParentExams, fetchParentProgress } from '../../utils/schoolApi';
 import { useParentPortal } from '../../context/ParentPortalContext';
 
-const ACCENT = '#0f766e';
+const ACCENT = '#4f46e5';
 
 function formatApiError(err) {
   const d = err?.response?.data;
@@ -200,7 +200,7 @@ export default function ParentProgressScreen() {
 }
 
 const styles = StyleSheet.create({
-  safe: { flex: 1, backgroundColor: '#f0fdfa' },
+  safe: { flex: 1, backgroundColor: '#f5f3ff' },
   flex: { flex: 1 },
   scroll: { flex: 1 },
   scrollContent: { paddingHorizontal: 16, paddingBottom: 120 },
@@ -220,9 +220,9 @@ const styles = StyleSheet.create({
     borderRadius: 14,
     padding: 20,
     borderWidth: 1,
-    borderColor: '#ccfbf1',
+    borderColor: '#e0e7ff',
   },
-  emptyTitle: { fontSize: 16, fontWeight: '700', color: '#134e4a' },
+  emptyTitle: { fontSize: 16, fontWeight: '700', color: '#3730a3' },
   emptySub: { marginTop: 6, fontSize: 13, color: '#64748b', lineHeight: 18 },
   examList: { flexDirection: 'row', flexWrap: 'wrap', gap: 8, marginBottom: 12 },
   examChip: {
@@ -231,30 +231,30 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     backgroundColor: '#fff',
     borderWidth: 1,
-    borderColor: '#99f6e4',
+    borderColor: '#c7d2fe',
   },
   examChipActive: { backgroundColor: ACCENT, borderColor: ACCENT },
-  examChipTxt: { fontSize: 13, fontWeight: '700', color: '#134e4a' },
+  examChipTxt: { fontSize: 13, fontWeight: '700', color: '#3730a3' },
   examChipTxtActive: { color: '#fff' },
   examChipSub: { fontSize: 11, color: '#64748b', marginTop: 2 },
-  examChipSubActive: { color: '#ccfbf1' },
+  examChipSubActive: { color: '#e0e7ff' },
   summaryCard: {
-    backgroundColor: '#ccfbf1',
+    backgroundColor: '#e0e7ff',
     borderRadius: 14,
     padding: 14,
     marginBottom: 12,
   },
-  summaryLine: { fontSize: 14, color: '#134e4a', marginBottom: 4 },
-  summaryBold: { fontSize: 16, fontWeight: '800', color: '#0f766e', marginTop: 4 },
+  summaryLine: { fontSize: 14, color: '#3730a3', marginBottom: 4 },
+  summaryBold: { fontSize: 16, fontWeight: '800', color: '#4f46e5', marginTop: 4 },
   card: {
     backgroundColor: '#fff',
     borderRadius: 14,
     padding: 14,
     marginBottom: 10,
     borderWidth: 1,
-    borderColor: '#ccfbf1',
+    borderColor: '#e0e7ff',
   },
-  subject: { fontSize: 15, fontWeight: '800', color: '#134e4a' },
+  subject: { fontSize: 15, fontWeight: '800', color: '#3730a3' },
   meta: { marginTop: 6, fontSize: 13, color: '#64748b' },
   result: { marginTop: 6, fontSize: 14, fontWeight: '700', color: ACCENT },
   resultFail: { color: '#dc2626' },

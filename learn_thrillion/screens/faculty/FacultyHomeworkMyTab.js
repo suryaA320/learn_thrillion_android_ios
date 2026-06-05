@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useMemo, useState } from 'react';
+﻿import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import {
   View,
   Text,
@@ -276,7 +276,7 @@ export default function FacultyHomeworkMyTab({ active, reloadTick }) {
   if (loading && rows.length === 0 && !error) {
     return (
       <View style={styles.centered}>
-        <ActivityIndicator size="large" color="#15803d" />
+        <ActivityIndicator size="large" color="#4f46e5" />
         <Text style={styles.muted}>Loading your homework…</Text>
       </View>
     );
@@ -287,7 +287,7 @@ export default function FacultyHomeworkMyTab({ active, reloadTick }) {
       <ScrollView
         style={styles.scroll}
         contentContainerStyle={styles.scrollContent}
-        refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} tintColor="#15803d" />}
+        refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} tintColor="#4f46e5" />}
       >
         <Text style={styles.hint}>Only homework you created for your school is listed here.</Text>
         {error ? <Text style={styles.banner}>{error}</Text> : null}
@@ -333,7 +333,7 @@ export default function FacultyHomeworkMyTab({ active, reloadTick }) {
             <Text style={styles.modalTitle}>Edit homework</Text>
             {editBootLoading ? (
               <View style={styles.modalLoading}>
-                <ActivityIndicator color="#15803d" />
+                <ActivityIndicator color="#4f46e5" />
                 <Text style={styles.muted}>Loading form…</Text>
               </View>
             ) : (
@@ -471,7 +471,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#e5e7eb',
   },
-  subject: { fontSize: 17, fontWeight: '800', color: '#14532d' },
+  subject: { fontSize: 17, fontWeight: '800', color: '#3730a3' },
   title: { fontSize: 15, fontWeight: '600', color: '#111827', marginTop: 4 },
   meta: { fontSize: 12, color: '#6b7280', marginTop: 4 },
   body: {
@@ -489,11 +489,11 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
     paddingHorizontal: 14,
     borderRadius: 10,
-    backgroundColor: '#dcfce7',
+    backgroundColor: '#e0e7ff',
     borderWidth: 1,
-    borderColor: '#bbf7d0',
+    borderColor: '#c7d2fe',
   },
-  editBtnTxt: { color: '#14532d', fontWeight: '700', fontSize: 13 },
+  editBtnTxt: { color: '#3730a3', fontWeight: '700', fontSize: 13 },
   delBtn: {
     paddingVertical: 8,
     paddingHorizontal: 14,
@@ -521,7 +521,7 @@ const styles = StyleSheet.create({
   modalTitle: {
     fontSize: 18,
     fontWeight: '800',
-    color: '#14532d',
+    color: '#3730a3',
     marginBottom: 12,
   },
   modalLoading: {
@@ -534,13 +534,13 @@ const styles = StyleSheet.create({
   fieldLabel: {
     fontSize: 13,
     fontWeight: '600',
-    color: '#14532d',
+    color: '#3730a3',
     marginTop: 10,
     marginBottom: 4,
   },
   dropdown: {
     borderWidth: 1,
-    borderColor: '#bbf7d0',
+    borderColor: '#c7d2fe',
     borderRadius: 12,
     paddingHorizontal: 12,
     paddingVertical: 10,
@@ -551,7 +551,7 @@ const styles = StyleSheet.create({
   ddSel: { fontSize: 14, color: '#111827' },
   input: {
     borderWidth: 1,
-    borderColor: '#bbf7d0',
+    borderColor: '#c7d2fe',
     borderRadius: 12,
     paddingHorizontal: 12,
     paddingVertical: 10,
@@ -562,7 +562,7 @@ const styles = StyleSheet.create({
   textArea: {
     minHeight: 120,
     borderWidth: 1,
-    borderColor: '#bbf7d0',
+    borderColor: '#c7d2fe',
     borderRadius: 12,
     padding: 12,
     fontSize: 15,
@@ -587,7 +587,7 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingVertical: 12,
     borderRadius: 12,
-    backgroundColor: '#15803d',
+    backgroundColor: '#4f46e5',
     alignItems: 'center',
     justifyContent: 'center',
     minHeight: 44,

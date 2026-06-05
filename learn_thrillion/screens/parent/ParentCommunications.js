@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import TopNavigationStylish from '../../components/TopNavigationStylish';
@@ -22,13 +22,13 @@ export default function ParentCommunications() {
 const styles = StyleSheet.create({
   main: {
     flex: 1,
-    backgroundColor: '#f0fdfa',
+    backgroundColor: '#f5f3ff',
     padding: 20,
   },
   title: {
     fontSize: 22,
     fontWeight: '700',
-    color: '#134e4a',
+    color: '#3730a3',
     marginBottom: 8,
   },
   sub: {

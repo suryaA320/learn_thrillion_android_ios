@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { ActivityIndicator, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -22,7 +22,7 @@ function AppNavigator() {
   if (!ready) {
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: '#fff' }}>
-        <ActivityIndicator size="large" color="#4CAF50" />
+        <ActivityIndicator size="large" color="#4f46e5" />
         <Text style={{ marginTop: 14, color: '#64748b' }}>Loading…</Text>
       </View>
     );

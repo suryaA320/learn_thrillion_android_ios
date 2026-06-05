@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+﻿import React, { useCallback, useEffect, useState } from 'react';
 import {
   View,
   Text,
@@ -103,14 +103,14 @@ export default function StudentProgressScreen() {
         <ScrollView
           style={styles.scroll}
           contentContainerStyle={styles.scrollContent}
-          refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} tintColor="#15803d" />}
+          refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} tintColor="#4f46e5" />}
         >
           <Text style={styles.hint}>Choose a school exam, then view your marks for that exam.</Text>
           {banner ? <Text style={styles.banner}>{banner}</Text> : null}
 
           {examsLoading ? (
             <View style={styles.inlineLoad}>
-              <ActivityIndicator color="#15803d" />
+              <ActivityIndicator color="#4f46e5" />
               <Text style={styles.muted}>Loading exams…</Text>
             </View>
           ) : exams.length === 0 && !banner ? (
@@ -142,7 +142,7 @@ export default function StudentProgressScreen() {
 
           {progressLoading ? (
             <View style={styles.inlineLoad}>
-              <ActivityIndicator color="#15803d" />
+              <ActivityIndicator color="#4f46e5" />
               <Text style={styles.muted}>Loading marks…</Text>
             </View>
           ) : null}
@@ -183,7 +183,7 @@ export default function StudentProgressScreen() {
 }
 
 const styles = StyleSheet.create({
-  safe: { flex: 1, backgroundColor: '#ecfdf5' },
+  safe: { flex: 1, backgroundColor: '#eef2ff' },
   flex: { flex: 1 },
   scroll: { flex: 1 },
   scrollContent: { paddingHorizontal: 16, paddingBottom: 120 },
@@ -206,7 +206,7 @@ const styles = StyleSheet.create({
     borderColor: '#e5e7eb',
     marginBottom: 12,
   },
-  emptyTitle: { fontSize: 16, fontWeight: '700', color: '#14532d' },
+  emptyTitle: { fontSize: 16, fontWeight: '700', color: '#3730a3' },
   emptySub: { marginTop: 6, fontSize: 13, color: '#6b7280', lineHeight: 18 },
   examList: { marginBottom: 12 },
   examChip: {
@@ -218,20 +218,20 @@ const styles = StyleSheet.create({
     borderColor: '#d1d5db',
   },
   examChipActive: {
-    borderColor: '#15803d',
-    backgroundColor: '#dcfce7',
+    borderColor: '#4f46e5',
+    backgroundColor: '#e0e7ff',
   },
-  examChipTxt: { fontSize: 15, fontWeight: '700', color: '#166534' },
-  examChipTxtActive: { color: '#14532d' },
+  examChipTxt: { fontSize: 15, fontWeight: '700', color: '#4338ca' },
+  examChipTxtActive: { color: '#3730a3' },
   examChipSub: { marginTop: 4, fontSize: 12, color: '#6b7280' },
-  examChipSubActive: { color: '#15803d' },
+  examChipSubActive: { color: '#4f46e5' },
   summaryCard: {
-    backgroundColor: '#14532d',
+    backgroundColor: '#3730a3',
     borderRadius: 14,
     padding: 16,
     marginBottom: 12,
   },
-  summaryLine: { fontSize: 14, color: '#ecfdf5', marginBottom: 4 },
+  summaryLine: { fontSize: 14, color: '#eef2ff', marginBottom: 4 },
   summaryBold: { fontSize: 16, fontWeight: '800', color: '#fef9c3', marginTop: 4 },
   card: {
     backgroundColor: '#fff',
@@ -241,8 +241,8 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#e5e7eb',
   },
-  subject: { fontSize: 16, fontWeight: '800', color: '#14532d' },
+  subject: { fontSize: 16, fontWeight: '800', color: '#3730a3' },
   meta: { marginTop: 6, fontSize: 13, color: '#6b7280' },
-  result: { marginTop: 8, fontSize: 14, fontWeight: '700', color: '#15803d' },
+  result: { marginTop: 8, fontSize: 14, fontWeight: '700', color: '#4f46e5' },
   resultFail: { color: '#b45309' },
 });

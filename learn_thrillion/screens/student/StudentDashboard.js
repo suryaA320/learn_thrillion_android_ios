@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import TopNavigationStylish from '../../components/TopNavigationStylish';
@@ -44,12 +44,12 @@ export default function StudentDashboard() {
 
 const styles = StyleSheet.create({
   mainContent: {
-    backgroundColor: '#f0fdf4',
+    backgroundColor: '#f5f3ff',
     flex: 1,
   },
   banner: {
     minHeight: 100,
-    backgroundColor: '#bbf7d0',
+    backgroundColor: '#c7d2fe',
     margin: 10,
     borderRadius: 24,
     padding: 16,
@@ -58,17 +58,17 @@ const styles = StyleSheet.create({
   bannerTitle: {
     fontSize: 18,
     fontWeight: '700',
-    color: '#14532d',
+    color: '#3730a3',
   },
   bannerSub: {
     marginTop: 6,
     fontSize: 14,
-    color: '#166534',
+    color: '#4338ca',
   },
   bannerMeta: {
     marginTop: 4,
     fontSize: 13,
-    color: '#15803d',
+    color: '#4f46e5',
     fontWeight: '600',
   },
   bannerErr: {
@@ -86,7 +86,7 @@ const styles = StyleSheet.create({
     flex: 1,
     margin: 6,
     borderRadius: 24,
-    backgroundColor: '#14532d',
+    backgroundColor: '#3730a3',
   },
   rightCol: {
     flex: 1,
@@ -96,12 +96,12 @@ const styles = StyleSheet.create({
     flex: 1,
     marginBottom: 6,
     borderRadius: 24,
-    backgroundColor: '#166534',
+    backgroundColor: '#4338ca',
   },
   rightCardBottom: {
     flex: 1,
     marginTop: 6,
     borderRadius: 24,
-    backgroundColor: '#86efac',
+    backgroundColor: '#a5b4fc',
   },
 });

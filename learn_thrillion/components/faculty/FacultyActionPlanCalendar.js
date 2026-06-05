@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useMemo, useState } from 'react';
+﻿import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import {
   View,
   Text,
@@ -55,7 +55,7 @@ function planAppliesOnDate(plan, date) {
 
 function planStatusColor(status) {
   const x = (status || '').toLowerCase();
-  if (x === 'completed') return '#16a34a';
+  if (x === 'completed') return '#4f46e5';
   if (x === 'active') return '#2563eb';
   if (x === 'cancelled') return '#9ca3af';
   return '#7c3aed';

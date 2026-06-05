@@ -1,4 +1,4 @@
-import React, { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react';
+﻿import React, { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react';
 import {
   ActivityIndicator,
   Modal,
@@ -11,6 +11,14 @@ import {
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import axios from 'axios';
 import api, { API_ORIGIN } from '../utils/api_endpoints/api';
+import {
+  clearStoredSession,
+  ensureFreshAccessToken,
+  getStoredAccessToken,
+  registerSessionExpiredHandler,
+  setStoredTokens,
+  startProactiveTokenRefresh,
+} from '../utils/authSession';
 import { AUTH_KEYS } from '../utils/tokenStorage';
 
 const AuthContext = createContext(null);
@@ -40,6 +48,7 @@ export function AuthProvider({ children }) {
 
   const refreshUser = useCallback(async () => {
     try {
+      await ensureFreshAccessToken();
       const { data } = await api.get('status/');
       let prev = {};
       try {
@@ -54,12 +63,12 @@ export function AuthProvider({ children }) {
         await AsyncStorage.setItem(AUTH_KEYS.user, JSON.stringify(merged));
       } else {
         setUser(null);
-        await AsyncStorage.multiRemove([AUTH_KEYS.user, AUTH_KEYS.access, AUTH_KEYS.refresh]).catch(() => {});
+        await clearStoredSession();
       }
       return merged;
     } catch (e) {
-      if (e?.response?.status === 401) {
-        await AsyncStorage.multiRemove([AUTH_KEYS.user, AUTH_KEYS.access, AUTH_KEYS.refresh]).catch(() => {});
+      if (e?.response?.status === 401 || e?._sessionExpired) {
+        await clearStoredSession();
         setUser(null);
       }
       throw e;
@@ -68,12 +77,12 @@ export function AuthProvider({ children }) {
 
   const performSignOut = useCallback(async () => {
     try {
-      const access = await AsyncStorage.getItem(AUTH_KEYS.access);
+      const access = await getStoredAccessToken();
       await axios.post(`${API_ORIGIN}/logout/`, {}, { timeout: 15000, headers: access ? { Authorization: `Bearer ${access}` } : {} });
     } catch {
       /* ignore */
     }
-    await AsyncStorage.multiRemove([AUTH_KEYS.user, AUTH_KEYS.access, AUTH_KEYS.refresh]).catch(() => {});
+    await clearStoredSession();
     setUser(null);
   }, []);
 
@@ -99,20 +108,32 @@ export function AuthProvider({ children }) {
 
   const signIn = useCallback(async (userPayload, tokens = null) => {
     if (!userPayload) return;
-    const pairs = [[AUTH_KEYS.user, JSON.stringify(userPayload)]];
-    if (tokens?.access) pairs.push([AUTH_KEYS.access, String(tokens.access)]);
-    if (tokens?.refresh) pairs.push([AUTH_KEYS.refresh, String(tokens.refresh)]);
-    await AsyncStorage.multiSet(pairs);
+    await AsyncStorage.setItem(AUTH_KEYS.user, JSON.stringify(userPayload));
+    if (tokens?.access || tokens?.refresh) {
+      await setStoredTokens({ access: tokens.access, refresh: tokens.refresh });
+    }
     setUser(userPayload);
+  }, []);
+
+  useEffect(() => {
+    const stopProactive = startProactiveTokenRefresh();
+    const unregisterSession = registerSessionExpiredHandler(async () => {
+      setUser(null);
+    });
+    return () => {
+      stopProactive();
+      unregisterSession();
+    };
   }, []);
 
   useEffect(() => {
     let cancelled = false;
     (async () => {
       try {
+        const ok = await ensureFreshAccessToken();
         const access = await AsyncStorage.getItem(AUTH_KEYS.access);
-        if (!access) {
-          await AsyncStorage.multiRemove([AUTH_KEYS.user, AUTH_KEYS.access, AUTH_KEYS.refresh]).catch(() => {});
+        if (!ok || !access) {
+          await clearStoredSession();
           if (!cancelled) setUser(null);
           return;
         }
@@ -132,12 +153,8 @@ export function AuthProvider({ children }) {
         } else setUser(null);
       } catch (e) {
         if (cancelled) return;
-        if (e?.response?.status === 401) {
-          await AsyncStorage.multiRemove([AUTH_KEYS.user, AUTH_KEYS.access, AUTH_KEYS.refresh]).catch(() => {});
-          setUser(null);
-        } else {
-          setUser(null);
-        }
+        await clearStoredSession();
+        setUser(null);
       } finally {
         if (!cancelled) setReady(true);
       }
@@ -223,7 +240,7 @@ const logoutStyles = StyleSheet.create({
   title: {
     fontSize: 18,
     fontWeight: '800',
-    color: '#14532d',
+    color: '#3730a3',
   },
   body: {
     marginTop: 8,

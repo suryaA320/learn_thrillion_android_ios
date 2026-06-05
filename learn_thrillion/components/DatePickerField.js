@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+﻿import React, { useMemo, useState } from 'react';
 import {
   View,
   Text,
@@ -225,14 +225,14 @@ export function MonthPickerField({ label, value, onChangeValue, allowClear }) {
 
 const styles = StyleSheet.create({
   wrap: { marginTop: 4 },
-  lbl: { fontSize: 13, fontWeight: '600', color: '#14532d', marginBottom: 4 },
+  lbl: { fontSize: 13, fontWeight: '600', color: '#3730a3', marginBottom: 4 },
   row: { flexDirection: 'row', alignItems: 'center', gap: 8 },
   field: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
     borderWidth: 1,
-    borderColor: '#bbf7d0',
+    borderColor: '#c7d2fe',
     borderRadius: 12,
     paddingHorizontal: 12,
     paddingVertical: 12,
@@ -243,7 +243,7 @@ const styles = StyleSheet.create({
   fieldPh: { color: '#9ca3af' },
   chev: { fontSize: 10, color: '#6b7280', marginLeft: 8 },
   clearBtn: { paddingVertical: 10, paddingHorizontal: 12 },
-  clearTxt: { fontSize: 14, fontWeight: '600', color: '#15803d' },
+  clearTxt: { fontSize: 14, fontWeight: '600', color: '#4f46e5' },
   backdrop: {
     flex: 1,
     backgroundColor: 'rgba(0,0,0,0.35)',
@@ -257,7 +257,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     paddingTop: 12,
   },
-  sheetTitle: { fontSize: 16, fontWeight: '700', color: '#14532d', textAlign: 'center' },
+  sheetTitle: { fontSize: 16, fontWeight: '700', color: '#3730a3', textAlign: 'center' },
   sheetHint: { fontSize: 12, color: '#6b7280', textAlign: 'center', marginTop: 4, marginBottom: 4 },
   iosPicker: { alignSelf: 'stretch' },
   sheetActions: {
@@ -268,7 +268,7 @@ const styles = StyleSheet.create({
   },
   sheetBtn: {
     flex: 1,
-    backgroundColor: '#15803d',
+    backgroundColor: '#4f46e5',
     paddingVertical: 12,
     borderRadius: 12,
     alignItems: 'center',

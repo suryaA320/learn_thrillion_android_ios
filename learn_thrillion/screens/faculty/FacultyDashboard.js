@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+﻿import React, { useCallback, useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, ActivityIndicator } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useFocusEffect, useNavigation } from '@react-navigation/native';
@@ -68,12 +68,12 @@ export default function FacultyDashboard() {
             >
               <View style={styles.cardHeader}>
                 <View style={styles.iconCircle}>
-                  <MaterialCommunityIcons name="beach" size={28} color="#14532d" />
+                  <MaterialCommunityIcons name="beach" size={28} color="#3730a3" />
                 </View>
                 <Text style={styles.cardLabel}>Leave Requests</Text>
               </View>
               {leaveLoading ? (
-                <ActivityIndicator color="#bbf7d0" style={{ marginTop: 16 }} />
+                <ActivityIndicator color="#c7d2fe" style={{ marginTop: 16 }} />
               ) : (
                 <View style={styles.metricBlock}>
                   <Text style={styles.availableLabel}>Available</Text>
@@ -100,12 +100,12 @@ export default function FacultyDashboard() {
 
 const styles = StyleSheet.create({
   mainContent: {
-    backgroundColor: '#f0fdf4',
+    backgroundColor: '#f5f3ff',
     flex: 1,
   },
   banner: {
     minHeight: 100,
-    backgroundColor: '#bbf7d0',
+    backgroundColor: '#c7d2fe',
     margin: 10,
     borderRadius: 24,
     padding: 16,
@@ -114,12 +114,12 @@ const styles = StyleSheet.create({
   bannerTitle: {
     fontSize: 18,
     fontWeight: '700',
-    color: '#14532d',
+    color: '#3730a3',
   },
   bannerSub: {
     marginTop: 6,
     fontSize: 14,
-    color: '#166534',
+    color: '#4338ca',
   },
   planningCard: {
     minHeight: 280,
@@ -131,7 +131,7 @@ const styles = StyleSheet.create({
     flex: 1,
     margin: 6,
     borderRadius: 24,
-    backgroundColor: '#14532d',
+    backgroundColor: '#3730a3',
     padding: 18,
     justifyContent: 'space-between',
   },
@@ -144,7 +144,7 @@ const styles = StyleSheet.create({
     width: 44,
     height: 44,
     borderRadius: 22,
-    backgroundColor: '#bbf7d0',
+    backgroundColor: '#c7d2fe',
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -152,7 +152,7 @@ const styles = StyleSheet.create({
     flex: 1,
     fontSize: 16,
     fontWeight: '700',
-    color: '#dcfce7',
+    color: '#e0e7ff',
     letterSpacing: 0.3,
   },
   metricBlock: {
@@ -161,7 +161,7 @@ const styles = StyleSheet.create({
   availableLabel: {
     fontSize: 13,
     fontWeight: '700',
-    color: '#86efac',
+    color: '#a5b4fc',
     textTransform: 'uppercase',
     letterSpacing: 1,
   },
@@ -174,7 +174,7 @@ const styles = StyleSheet.create({
   },
   cardMetricHint: {
     fontSize: 13,
-    color: '#bbf7d0',
+    color: '#c7d2fe',
     marginTop: 2,
     fontWeight: '500',
   },
@@ -187,7 +187,7 @@ const styles = StyleSheet.create({
   cardCta: {
     marginTop: 16,
     fontSize: 13,
-    color: '#86efac',
+    color: '#a5b4fc',
     fontWeight: '600',
   },
   rightCol: {
@@ -198,12 +198,12 @@ const styles = StyleSheet.create({
     flex: 1,
     marginBottom: 6,
     borderRadius: 24,
-    backgroundColor: '#166534',
+    backgroundColor: '#4338ca',
   },
   rightCardBottom: {
     flex: 1,
     marginTop: 6,
     borderRadius: 24,
-    backgroundColor: '#86efac',
+    backgroundColor: '#a5b4fc',
   },
 });

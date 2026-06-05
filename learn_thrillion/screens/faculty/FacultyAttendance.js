@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import TopNavigationStylish from '../../components/TopNavigationStylish';
@@ -55,7 +55,7 @@ export default function FacultyAttendance() {
 const styles = StyleSheet.create({
   safe: {
     flex: 1,
-    backgroundColor: '#ecfdf5',
+    backgroundColor: '#eef2ff',
   },
   flex: { flex: 1 },
   tabBar: {
@@ -63,11 +63,11 @@ const styles = StyleSheet.create({
     marginHorizontal: 12,
     marginTop: 4,
     marginBottom: 8,
-    backgroundColor: '#dcfce7',
+    backgroundColor: '#e0e7ff',
     borderRadius: 14,
     padding: 4,
     borderWidth: 1,
-    borderColor: '#bbf7d0',
+    borderColor: '#c7d2fe',
   },
   tab: {
     flex: 1,
@@ -89,10 +89,10 @@ const styles = StyleSheet.create({
   tabText: {
     fontSize: 15,
     fontWeight: '700',
-    color: '#166534',
+    color: '#4338ca',
   },
   tabTextActive: {
-    color: '#14532d',
+    color: '#3730a3',
   },
   tabSub: {
     fontSize: 11,
@@ -101,7 +101,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   tabSubActive: {
-    color: '#15803d',
+    color: '#4f46e5',
     fontWeight: '600',
   },
   body: {

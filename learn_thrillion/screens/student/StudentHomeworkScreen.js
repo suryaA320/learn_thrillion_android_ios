@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+﻿import React, { useCallback, useEffect, useState } from 'react';
 import {
   View,
   Text,
@@ -96,7 +96,7 @@ export default function StudentHomeworkScreen() {
             <DatePickerField label="Posted on" value={selectedDate} onChangeValue={setSelectedDate} placeholder="Select date" />
           </View>
           <View style={styles.centered}>
-            <ActivityIndicator size="large" color="#15803d" />
+            <ActivityIndicator size="large" color="#4f46e5" />
             <Text style={styles.muted}>
               {waitingProfile ? 'Loading your class and section…' : 'Loading homework for your class…'}
             </Text>
@@ -117,7 +117,7 @@ export default function StudentHomeworkScreen() {
         <ScrollView
           style={styles.scroll}
           contentContainerStyle={styles.scrollContent}
-          refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} tintColor="#15803d" />}
+          refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} tintColor="#4f46e5" />}
         >
           <Text style={styles.hint}>
             Homework assigned to your class and section that was posted on the selected calendar day.
@@ -156,7 +156,7 @@ export default function StudentHomeworkScreen() {
 }
 
 const styles = StyleSheet.create({
-  safe: { flex: 1, backgroundColor: '#ecfdf5' },
+  safe: { flex: 1, backgroundColor: '#eef2ff' },
   flex: { flex: 1 },
   pickerWrap: { paddingHorizontal: 16, paddingTop: 4, paddingBottom: 8 },
   scroll: { flex: 1 },
@@ -164,7 +164,7 @@ const styles = StyleSheet.create({
   centered: { flex: 1, justifyContent: 'center', alignItems: 'center', padding: 24 },
   muted: { marginTop: 10, color: '#6b7280', fontSize: 14 },
   hint: { fontSize: 12, color: '#6b7280', marginBottom: 6, lineHeight: 18 },
-  classLine: { fontSize: 13, fontWeight: '700', color: '#166534', marginBottom: 10 },
+  classLine: { fontSize: 13, fontWeight: '700', color: '#4338ca', marginBottom: 10 },
   banner: {
     backgroundColor: '#fef3c7',
     color: '#92400e',
@@ -180,7 +180,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#e5e7eb',
   },
-  emptyTitle: { fontSize: 16, fontWeight: '700', color: '#14532d' },
+  emptyTitle: { fontSize: 16, fontWeight: '700', color: '#3730a3' },
   emptySub: { marginTop: 6, fontSize: 13, color: '#6b7280', lineHeight: 18 },
   card: {
     backgroundColor: '#fff',
@@ -190,8 +190,8 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#e5e7eb',
   },
-  subject: { fontSize: 16, fontWeight: '800', color: '#14532d' },
-  title: { marginTop: 4, fontSize: 15, fontWeight: '700', color: '#166534' },
+  subject: { fontSize: 16, fontWeight: '800', color: '#3730a3' },
+  title: { marginTop: 4, fontSize: 15, fontWeight: '700', color: '#4338ca' },
   meta: { marginTop: 6, fontSize: 12, color: '#6b7280' },
   body: { marginTop: 10, fontSize: 14, color: '#374151', lineHeight: 20 },
 });

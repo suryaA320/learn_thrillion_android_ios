@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, ScrollView } from 'react-native';
 import { IconButton } from 'react-native-paper';
 import { useNavigation, useNavigationState } from '@react-navigation/native';
@@ -51,7 +51,7 @@ export default function ParentBottomNav() {
         <IconButton
           icon={icon}
           size={24}
-          iconColor={active ? '#ccfbf1' : '#ffffff'}
+          iconColor={active ? '#e0e7ff' : '#ffffff'}
           style={styles.iconBtn}
         />
         <Text style={[styles.label, active && styles.labelActive]} numberOfLines={1}>
@@ -88,11 +88,11 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
   },
   bottNav: {
-    backgroundColor: '#0f766e',
+    backgroundColor: '#4f46e5',
     borderRadius: 25,
     minHeight: 72,
     overflow: 'hidden',
-    shadowColor: '#134e4a',
+    shadowColor: '#3730a3',
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.2,
     shadowRadius: 8,
@@ -135,14 +135,14 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   labelActive: {
-    color: '#ccfbf1',
+    color: '#e0e7ff',
     fontWeight: '800',
   },
   activeDot: {
     width: 5,
     height: 5,
     borderRadius: 3,
-    backgroundColor: '#99f6e4',
+    backgroundColor: '#c7d2fe',
     marginTop: 3,
   },
   dotPlaceholder: {

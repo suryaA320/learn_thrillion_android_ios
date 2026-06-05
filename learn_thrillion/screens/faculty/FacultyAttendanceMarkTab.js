@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useMemo, useState } from 'react';
+﻿import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import {
   View,
   Text,
@@ -218,7 +218,7 @@ export default function FacultyAttendanceMarkTab() {
         <Text style={styles.sectionTitle}>Session</Text>
         <View style={styles.card}>
           {loadingClasses ? (
-            <ActivityIndicator color="#15803d" style={{ marginVertical: 12 }} />
+            <ActivityIndicator color="#4f46e5" style={{ marginVertical: 12 }} />
           ) : classItems.length === 0 ? (
             <Text style={styles.empty}>
               {isClassTeacher
@@ -251,7 +251,7 @@ export default function FacultyAttendanceMarkTab() {
           <View style={styles.field}>
             <Text style={styles.label}>Section</Text>
             {loadingSections ? (
-              <ActivityIndicator color="#15803d" style={{ marginVertical: 8 }} />
+              <ActivityIndicator color="#4f46e5" style={{ marginVertical: 8 }} />
             ) : (
               <Dropdown
                 style={styles.dropdown}
@@ -295,7 +295,7 @@ export default function FacultyAttendanceMarkTab() {
 
           <Button
             mode="contained"
-            buttonColor="#14532d"
+            buttonColor="#3730a3"
             style={styles.loadBtn}
             onPress={loadStudents}
             disabled={loadingStudents || !selectedClass || !selectedSection}
@@ -333,7 +333,7 @@ export default function FacultyAttendanceMarkTab() {
           {students.length > 0 ? (
             <Button
               mode="contained"
-              buttonColor="#15803d"
+              buttonColor="#4f46e5"
               style={styles.submitBtn}
               onPress={submit}
               disabled={submitting}
@@ -365,7 +365,7 @@ const styles = StyleSheet.create({
   sectionTitle: {
     fontSize: 13,
     fontWeight: '700',
-    color: '#166534',
+    color: '#4338ca',
     textTransform: 'uppercase',
     letterSpacing: 0.5,
     marginTop: 8,
@@ -419,7 +419,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#e5e7eb',
     alignItems: 'center',
   },
-  chipOn: { backgroundColor: '#14532d' },
+  chipOn: { backgroundColor: '#3730a3' },
   chipText: { fontWeight: '700', color: '#374151' },
   chipTextOn: { color: '#fff' },
   loadBtn: { marginTop: 4 },
@@ -440,9 +440,9 @@ const styles = StyleSheet.create({
     minWidth: 88,
     alignItems: 'center',
   },
-  pillPresent: { backgroundColor: '#bbf7d0' },
+  pillPresent: { backgroundColor: '#c7d2fe' },
   pillAbsent: { backgroundColor: '#fecaca' },
-  pillText: { fontWeight: '800', fontSize: 13, color: '#14532d' },
+  pillText: { fontWeight: '800', fontSize: 13, color: '#3730a3' },
   pillTextAbsent: { color: '#991b1b' },
   submitBtn: { marginTop: 16 },
 });

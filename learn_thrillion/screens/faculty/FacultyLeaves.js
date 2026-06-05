@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
@@ -77,13 +77,13 @@ export default function FacultyLeaves() {
 }
 
 const styles = StyleSheet.create({
-  safe: { flex: 1, backgroundColor: '#ecfdf5' },
+  safe: { flex: 1, backgroundColor: '#eef2ff' },
   flex: { flex: 1 },
   schoolScope: {
     marginHorizontal: 16,
     marginTop: 4,
     fontSize: 13,
-    color: '#166534',
+    color: '#4338ca',
   },
   schoolName: { fontWeight: '700' },
   tabBar: {
@@ -91,11 +91,11 @@ const styles = StyleSheet.create({
     marginHorizontal: 12,
     marginTop: 8,
     marginBottom: 8,
-    backgroundColor: '#dcfce7',
+    backgroundColor: '#e0e7ff',
     borderRadius: 14,
     padding: 4,
     borderWidth: 1,
-    borderColor: '#bbf7d0',
+    borderColor: '#c7d2fe',
   },
   tab: {
     flex: 1,
@@ -104,10 +104,10 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     alignItems: 'center',
   },
-  tabActive: { backgroundColor: '#15803d' },
-  tabText: { fontSize: 14, fontWeight: '700', color: '#14532d' },
+  tabActive: { backgroundColor: '#4f46e5' },
+  tabText: { fontSize: 14, fontWeight: '700', color: '#3730a3' },
   tabTextActive: { color: '#fff' },
-  tabSub: { fontSize: 11, color: '#166534', marginTop: 2, textAlign: 'center' },
-  tabSubActive: { color: '#dcfce7' },
+  tabSub: { fontSize: 11, color: '#4338ca', marginTop: 2, textAlign: 'center' },
+  tabSubActive: { color: '#e0e7ff' },
   body: { flex: 1 },
 });

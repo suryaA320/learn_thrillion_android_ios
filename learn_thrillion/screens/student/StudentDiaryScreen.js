@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useMemo, useState } from 'react';
+﻿import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import {
   View,
   Text,
@@ -156,7 +156,7 @@ export default function StudentDiaryScreen() {
 
         {(waitingProfile || (loading && !banner)) ? (
           <View style={styles.centered}>
-            <ActivityIndicator size="large" color="#15803d" />
+            <ActivityIndicator size="large" color="#4f46e5" />
             <Text style={styles.muted}>
               {waitingProfile ? 'Loading your class and section…' : 'Loading subjects and homework…'}
             </Text>
@@ -165,7 +165,7 @@ export default function StudentDiaryScreen() {
           <ScrollView
             style={styles.scroll}
             contentContainerStyle={styles.scrollContent}
-            refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} tintColor="#15803d" />}
+            refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} tintColor="#4f46e5" />}
           >
             <Text style={styles.hint}>
               All subjects for your school are listed for the day you pick. Homework posted for{' '}
@@ -209,7 +209,7 @@ export default function StudentDiaryScreen() {
 }
 
 const styles = StyleSheet.create({
-  safe: { flex: 1, backgroundColor: '#ecfdf5' },
+  safe: { flex: 1, backgroundColor: '#eef2ff' },
   flex: { flex: 1 },
   topCard: {
     marginHorizontal: 16,
@@ -252,7 +252,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#e5e7eb',
   },
-  emptyTitle: { fontSize: 16, fontWeight: '700', color: '#14532d' },
+  emptyTitle: { fontSize: 16, fontWeight: '700', color: '#3730a3' },
   emptySub: { marginTop: 6, fontSize: 13, color: '#6b7280', lineHeight: 18 },
   row: {
     flexDirection: 'row',
@@ -269,9 +269,9 @@ const styles = StyleSheet.create({
     maxWidth: 140,
     paddingVertical: 14,
     paddingHorizontal: 12,
-    backgroundColor: '#f0fdf4',
+    backgroundColor: '#f5f3ff',
     borderRightWidth: 1,
-    borderRightColor: '#bbf7d0',
+    borderRightColor: '#c7d2fe',
     justifyContent: 'center',
   },
   colRight: {
@@ -283,7 +283,7 @@ const styles = StyleSheet.create({
   subjectName: {
     fontSize: 15,
     fontWeight: '800',
-    color: '#14532d',
+    color: '#3730a3',
     lineHeight: 20,
   },
   homeworkText: {

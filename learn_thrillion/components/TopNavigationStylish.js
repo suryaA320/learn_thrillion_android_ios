@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import { Image, StyleSheet, Text, View, TouchableOpacity, Pressable } from 'react-native';
 import { IconButton, Card } from 'react-native-paper';
 import { useNavigation } from '@react-navigation/native';
@@ -36,7 +36,7 @@ export default function TopNavigationStylish({ title, showBack, onBack } = {}) {
       <View style={styles.navStyles}>
         {showBack ? (
           <TouchableOpacity style={styles.childContent} onPress={handleBack} accessibilityLabel="Go back">
-            <IconButton icon="arrow-left" size={24} iconColor="#15803d" style={styles.backBtn} />
+            <IconButton icon="arrow-left" size={24} iconColor="#4f46e5" style={styles.backBtn} />
           </TouchableOpacity>
         ) : (
           <TouchableOpacity style={styles.childContent} onPress={() => setMenuOpen(!menuOpen)}>

@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+﻿import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import {
   View,
   Text,
@@ -282,7 +282,7 @@ export default function FacultyComplaintsAddTab({ onSuccess }) {
   if (ctxLoading) {
     return (
       <View style={styles.centered}>
-        <ActivityIndicator size="large" color="#15803d" />
+        <ActivityIndicator size="large" color="#4f46e5" />
         <Text style={styles.muted}>Loading school & subjects…</Text>
       </View>
     );
@@ -341,7 +341,7 @@ export default function FacultyComplaintsAddTab({ onSuccess }) {
 
           <Text style={[styles.label, styles.mt]}>Section</Text>
           {loadingSections ? (
-            <ActivityIndicator color="#15803d" style={{ marginVertical: 8 }} />
+            <ActivityIndicator color="#4f46e5" style={{ marginVertical: 8 }} />
           ) : (
             <Dropdown
               style={styles.dropdown}
@@ -358,11 +358,11 @@ export default function FacultyComplaintsAddTab({ onSuccess }) {
           )}
 
           {!filtersLocked ? (
-            <Button mode="contained" buttonColor="#14532d" style={styles.mtBtn} onPress={applyFilters}>
+            <Button mode="contained" buttonColor="#3730a3" style={styles.mtBtn} onPress={applyFilters}>
               Apply context
             </Button>
           ) : (
-            <Button mode="outlined" textColor="#14532d" style={styles.mtBtn} onPress={resetFilters}>
+            <Button mode="outlined" textColor="#3730a3" style={styles.mtBtn} onPress={resetFilters}>
               Change context
             </Button>
           )}
@@ -434,7 +434,7 @@ export default function FacultyComplaintsAddTab({ onSuccess }) {
                 placeholderTextColor="#9ca3af"
               />
               {studentSearchLoading ? (
-                <ActivityIndicator color="#15803d" style={{ marginVertical: 6 }} />
+                <ActivityIndicator color="#4f46e5" style={{ marginVertical: 6 }} />
               ) : null}
               {studentHits.length > 0 ? (
                 <FlatList
@@ -466,7 +466,7 @@ export default function FacultyComplaintsAddTab({ onSuccess }) {
 
               <Button
                 mode="contained"
-                buttonColor="#15803d"
+                buttonColor="#4f46e5"
                 style={styles.mtBtn}
                 onPress={handleSubmit}
                 disabled={submitting || (needsDelegateFaculty && !linkedFaculty)}
@@ -488,7 +488,7 @@ const styles = StyleSheet.create({
   centered: { flex: 1, justifyContent: 'center', alignItems: 'center', padding: 24 },
   muted: { marginTop: 10, color: '#6b7280', fontSize: 14 },
   schoolBanner: { fontSize: 14, color: '#4b5563', marginBottom: 8 },
-  schoolStrong: { fontWeight: '800', color: '#14532d' },
+  schoolStrong: { fontWeight: '800', color: '#3730a3' },
   banner: {
     backgroundColor: '#fef3c7',
     color: '#92400e',
@@ -500,7 +500,7 @@ const styles = StyleSheet.create({
   sectionTitle: {
     fontSize: 13,
     fontWeight: '700',
-    color: '#166534',
+    color: '#4338ca',
     textTransform: 'uppercase',
     letterSpacing: 0.5,
     marginTop: 8,
@@ -529,7 +529,7 @@ const styles = StyleSheet.create({
   ph: { fontSize: 15, color: '#9ca3af' },
   sel: { fontSize: 15, color: '#111' },
   delegateBox: { marginBottom: 12 },
-  linkedName: { fontSize: 16, fontWeight: '800', color: '#14532d', marginTop: 6 },
+  linkedName: { fontSize: 16, fontWeight: '800', color: '#3730a3', marginTop: 6 },
   warn: { fontSize: 13, color: '#b45309', marginTop: 6, lineHeight: 18 },
   smallMuted: { fontSize: 12, color: '#6b7280', marginTop: 6 },
   input: {

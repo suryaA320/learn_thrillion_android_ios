@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+﻿import React, { useCallback, useState } from 'react';
 import {
   View,
   Text,
@@ -75,7 +75,7 @@ export default function FacultyProfile() {
     return (
       <SafeAreaView style={styles.safe} edges={['top', 'left', 'right']}>
         <View style={styles.centered}>
-          <ActivityIndicator size="large" color="#15803d" />
+          <ActivityIndicator size="large" color="#4f46e5" />
         </View>
       </SafeAreaView>
     );
@@ -89,7 +89,7 @@ export default function FacultyProfile() {
           style={styles.scroll}
           contentContainerStyle={styles.scrollContent}
           refreshControl={
-            <RefreshControl refreshing={refreshing} onRefresh={onRefresh} tintColor="#15803d" />
+            <RefreshControl refreshing={refreshing} onRefresh={onRefresh} tintColor="#4f46e5" />
           }
         >
           {banner ? <Text style={styles.banner}>{banner}</Text> : null}
@@ -124,7 +124,7 @@ export default function FacultyProfile() {
 const styles = StyleSheet.create({
   safe: {
     flex: 1,
-    backgroundColor: '#ecfdf5',
+    backgroundColor: '#eef2ff',
   },
   flex: {
     flex: 1,
@@ -159,13 +159,13 @@ const styles = StyleSheet.create({
     height: 96,
     borderRadius: 48,
     borderWidth: 3,
-    borderColor: '#bbf7d0',
+    borderColor: '#c7d2fe',
   },
   name: {
     marginTop: 14,
     fontSize: 22,
     fontWeight: '700',
-    color: '#14532d',
+    color: '#3730a3',
     textAlign: 'center',
   },
   statusBadge: {
@@ -175,7 +175,7 @@ const styles = StyleSheet.create({
     borderRadius: 20,
   },
   badgeActive: {
-    backgroundColor: '#bbf7d0',
+    backgroundColor: '#c7d2fe',
   },
   badgeMuted: {
     backgroundColor: '#e5e7eb',
@@ -183,12 +183,12 @@ const styles = StyleSheet.create({
   statusBadgeText: {
     fontSize: 13,
     fontWeight: '600',
-    color: '#14532d',
+    color: '#3730a3',
   },
   sectionTitle: {
     fontSize: 13,
     fontWeight: '700',
-    color: '#166534',
+    color: '#4338ca',
     textTransform: 'uppercase',
     letterSpacing: 0.6,
     marginTop: 16,

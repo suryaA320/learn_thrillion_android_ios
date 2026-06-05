@@ -1,7 +1,12 @@
+import { isAuthSessionError } from './authSession';
+
 /**
  * Same contract as web `src/Utils/loginErrorMessage.js` — server message first.
  */
 export function formatLoginApiError(err) {
+  if (isAuthSessionError(err) || err?._sessionExpired) {
+    return 'Your session has expired. Please sign in again.';
+  }
   const d = err?.response?.data;
   const status = err?.response?.status;
 

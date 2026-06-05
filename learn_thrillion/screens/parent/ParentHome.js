@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { View, Text, StyleSheet, ActivityIndicator } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
@@ -41,12 +41,12 @@ export default function ParentHome() {
             <View style={styles.leftCard}>
               <View style={styles.cardHeader}>
                 <View style={styles.iconCircle}>
-                  <MaterialCommunityIcons name="account-group" size={28} color="#0f766e" />
+                  <MaterialCommunityIcons name="account-group" size={28} color="#4f46e5" />
                 </View>
                 <Text style={styles.cardLabel}>My children</Text>
               </View>
               {childrenLoading ? (
-                <ActivityIndicator color="#99f6e4" style={{ marginTop: 16 }} />
+                <ActivityIndicator color="#c7d2fe" style={{ marginTop: 16 }} />
               ) : (
                 <View style={styles.metricBlock}>
                   <Text style={styles.metricLabel}>Linked</Text>
@@ -64,14 +64,14 @@ export default function ParentHome() {
 
             <View style={styles.rightCol}>
               <View style={styles.rightCardTop}>
-                <MaterialCommunityIcons name="school" size={32} color="#ccfbf1" />
+                <MaterialCommunityIcons name="school" size={32} color="#e0e7ff" />
                 <Text style={styles.rightCardTitle}>School</Text>
                 <Text style={styles.rightCardSub} numberOfLines={2}>
                   {user?.school_name || 'Your school'}
                 </Text>
               </View>
               <View style={styles.rightCardBottom}>
-                <MaterialCommunityIcons name="heart-pulse" size={32} color="#134e4a" />
+                <MaterialCommunityIcons name="heart-pulse" size={32} color="#3730a3" />
                 <Text style={styles.rightCardTitleDark}>Stay connected</Text>
                 <Text style={styles.rightCardSubDark} numberOfLines={2}>
                   Fees, homework & updates in one place
@@ -88,13 +88,13 @@ export default function ParentHome() {
 
 const styles = StyleSheet.create({
   mainContent: {
-    backgroundColor: '#f0fdfa',
+    backgroundColor: '#f5f3ff',
     flex: 1,
     paddingBottom: 100,
   },
   banner: {
     minHeight: 100,
-    backgroundColor: '#99f6e4',
+    backgroundColor: '#c7d2fe',
     margin: 10,
     borderRadius: 24,
     padding: 16,
@@ -103,12 +103,12 @@ const styles = StyleSheet.create({
   bannerTitle: {
     fontSize: 18,
     fontWeight: '700',
-    color: '#134e4a',
+    color: '#3730a3',
   },
   bannerSub: {
     marginTop: 6,
     fontSize: 14,
-    color: '#115e59',
+    color: '#3730a3',
   },
   cardsRow: {
     minHeight: 280,
@@ -120,7 +120,7 @@ const styles = StyleSheet.create({
     flex: 1,
     margin: 6,
     borderRadius: 24,
-    backgroundColor: '#0f766e',
+    backgroundColor: '#4f46e5',
     padding: 18,
     justifyContent: 'space-between',
   },
@@ -133,7 +133,7 @@ const styles = StyleSheet.create({
     width: 44,
     height: 44,
     borderRadius: 22,
-    backgroundColor: '#ccfbf1',
+    backgroundColor: '#e0e7ff',
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -141,7 +141,7 @@ const styles = StyleSheet.create({
     flex: 1,
     fontSize: 16,
     fontWeight: '700',
-    color: '#f0fdfa',
+    color: '#f5f3ff',
     letterSpacing: 0.3,
   },
   metricBlock: {
@@ -150,7 +150,7 @@ const styles = StyleSheet.create({
   metricLabel: {
     fontSize: 13,
     fontWeight: '700',
-    color: '#5eead4',
+    color: '#a5b4fc',
     textTransform: 'uppercase',
     letterSpacing: 1,
   },
@@ -163,7 +163,7 @@ const styles = StyleSheet.create({
   },
   cardMetricHint: {
     fontSize: 13,
-    color: '#99f6e4',
+    color: '#c7d2fe',
     marginTop: 2,
     fontWeight: '500',
   },
@@ -176,7 +176,7 @@ const styles = StyleSheet.create({
   cardFoot: {
     marginTop: 16,
     fontSize: 13,
-    color: '#5eead4',
+    color: '#a5b4fc',
     fontWeight: '600',
   },
   rightCol: {
@@ -187,7 +187,7 @@ const styles = StyleSheet.create({
     flex: 1,
     marginBottom: 6,
     borderRadius: 24,
-    backgroundColor: '#115e59',
+    backgroundColor: '#3730a3',
     padding: 16,
     justifyContent: 'flex-end',
   },
@@ -195,7 +195,7 @@ const styles = StyleSheet.create({
     flex: 1,
     marginTop: 6,
     borderRadius: 24,
-    backgroundColor: '#5eead4',
+    backgroundColor: '#a5b4fc',
     padding: 16,
     justifyContent: 'flex-end',
   },
@@ -203,24 +203,24 @@ const styles = StyleSheet.create({
     marginTop: 8,
     fontSize: 15,
     fontWeight: '700',
-    color: '#ecfdf5',
+    color: '#eef2ff',
   },
   rightCardSub: {
     marginTop: 4,
     fontSize: 12,
-    color: '#ccfbf1',
+    color: '#e0e7ff',
     lineHeight: 16,
   },
   rightCardTitleDark: {
     marginTop: 8,
     fontSize: 15,
     fontWeight: '700',
-    color: '#134e4a',
+    color: '#3730a3',
   },
   rightCardSubDark: {
     marginTop: 4,
     fontSize: 12,
-    color: '#0f766e',
+    color: '#4f46e5',
     lineHeight: 16,
   },
 });

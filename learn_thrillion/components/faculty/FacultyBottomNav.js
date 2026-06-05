@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, ScrollView } from 'react-native';
 import { IconButton } from 'react-native-paper';
 import { useNavigation, useNavigationState } from '@react-navigation/native';
@@ -8,6 +8,7 @@ import { useAuth } from '../../context/AuthContext';
 const ROUTES = {
   home: 'FacultyHome',
   homework: 'FacultyHomework',
+  studyMaterial: 'FacultyStudyMaterial',
   attendance: 'FacultyAttendance',
   planning: 'FacultyPlanning',
   complaints: 'FacultyComplaints',
@@ -53,6 +54,7 @@ export default function FacultyBottomNav() {
       <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.scrollView}>
         {item('home', 'Home', ROUTES.home)}
         {item('bookshelf', 'Homework', ROUTES.homework)}
+        {item('book-open-page-variant', 'Notes', ROUTES.studyMaterial)}
         {item('chart-box', 'Attendance', ROUTES.attendance)}
         {item('notebook-edit-outline', 'Planning', ROUTES.planning)}
         {item('balcony', 'Complaints', ROUTES.complaints)}
@@ -69,7 +71,7 @@ export default function FacultyBottomNav() {
 
 const styles = StyleSheet.create({
   bottNav: {
-    backgroundColor: '#14532d',
+    backgroundColor: '#3730a3',
     height: 80,
     margin: 10,
     borderRadius: 25,

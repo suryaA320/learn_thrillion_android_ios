@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+﻿import React, { useCallback, useEffect, useState } from 'react';
 import {
   View,
   Text,
@@ -64,7 +64,7 @@ export default function FacultyAttendanceMySessionsTab({ active }) {
   if (loading && sessions.length === 0) {
     return (
       <View style={styles.centered}>
-        <ActivityIndicator size="large" color="#15803d" />
+        <ActivityIndicator size="large" color="#4f46e5" />
         <Text style={styles.muted}>Loading your sessions…</Text>
       </View>
     );
@@ -74,7 +74,7 @@ export default function FacultyAttendanceMySessionsTab({ active }) {
     <ScrollView
       style={styles.scroll}
       contentContainerStyle={styles.scrollContent}
-      refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} tintColor="#15803d" />}
+      refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} tintColor="#4f46e5" />}
     >
       {error ? <Text style={styles.banner}>{error}</Text> : null}
 
@@ -153,7 +153,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#d1fae5',
   },
-  emptyTitle: { fontSize: 17, fontWeight: '700', color: '#14532d', marginBottom: 8 },
+  emptyTitle: { fontSize: 17, fontWeight: '700', color: '#3730a3', marginBottom: 8 },
   emptySub: { fontSize: 14, color: '#4b5563', lineHeight: 20 },
   sessionCard: {
     backgroundColor: '#fff',
@@ -163,10 +163,10 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#d1fae5',
   },
-  sessionTitle: { fontSize: 16, fontWeight: '800', color: '#14532d' },
+  sessionTitle: { fontSize: 16, fontWeight: '800', color: '#3730a3' },
   sessionMeta: { fontSize: 14, color: '#374151', marginTop: 4 },
   sessionCount: { fontSize: 13, color: '#6b7280', marginTop: 4 },
-  tapHint: { fontSize: 12, color: '#15803d', fontWeight: '700', marginTop: 8 },
+  tapHint: { fontSize: 12, color: '#4f46e5', fontWeight: '700', marginTop: 8 },
   records: {
     marginTop: 12,
     paddingTop: 12,
@@ -187,7 +187,7 @@ const styles = StyleSheet.create({
     paddingVertical: 4,
     borderRadius: 12,
   },
-  badgeOn: { backgroundColor: '#bbf7d0' },
+  badgeOn: { backgroundColor: '#c7d2fe' },
   badgeOff: { backgroundColor: '#fecaca' },
-  badgeTxt: { fontSize: 12, fontWeight: '800', color: '#14532d' },
+  badgeTxt: { fontSize: 12, fontWeight: '800', color: '#3730a3' },
 });

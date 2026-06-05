@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+﻿import React, { useCallback, useState } from 'react';
 import {
   View,
   Text,
@@ -15,7 +15,7 @@ import ParentChildPicker from '../../components/ParentChildPicker';
 import { fetchParentFees } from '../../utils/schoolApi';
 import { useParentPortal } from '../../context/ParentPortalContext';
 
-const ACCENT = '#0f766e';
+const ACCENT = '#4f46e5';
 
 function formatApiError(err) {
   const d = err?.response?.data;
@@ -205,7 +205,7 @@ export default function ParentFeesScreen() {
 }
 
 const styles = StyleSheet.create({
-  safe: { flex: 1, backgroundColor: '#f0fdfa' },
+  safe: { flex: 1, backgroundColor: '#f5f3ff' },
   flex: { flex: 1 },
   scroll: { flex: 1 },
   scrollContent: { paddingHorizontal: 16, paddingBottom: 120 },
@@ -220,7 +220,7 @@ const styles = StyleSheet.create({
     fontSize: 13,
   },
   heroCard: {
-    backgroundColor: '#0f766e',
+    backgroundColor: '#4f46e5',
     borderRadius: 16,
     padding: 16,
     marginBottom: 12,
@@ -233,12 +233,12 @@ const styles = StyleSheet.create({
   heroMeta: {
     marginTop: 6,
     fontSize: 13,
-    color: '#ccfbf1',
+    color: '#e0e7ff',
   },
   heroYear: {
     marginTop: 8,
     fontSize: 12,
-    color: '#99f6e4',
+    color: '#c7d2fe',
     fontWeight: '600',
   },
   summaryCard: {
@@ -247,12 +247,12 @@ const styles = StyleSheet.create({
     padding: 16,
     marginBottom: 16,
     borderWidth: 1,
-    borderColor: '#99f6e4',
+    borderColor: '#c7d2fe',
   },
   sectionTitle: {
     fontSize: 14,
     fontWeight: '800',
-    color: '#134e4a',
+    color: '#3730a3',
     marginBottom: 10,
     textTransform: 'uppercase',
     letterSpacing: 0.5,
@@ -272,7 +272,7 @@ const styles = StyleSheet.create({
   feeValue: {
     fontSize: 15,
     fontWeight: '700',
-    color: '#134e4a',
+    color: '#3730a3',
   },
   feeValueHighlight: {
     color: ACCENT,
@@ -291,10 +291,10 @@ const styles = StyleSheet.create({
     borderRadius: 14,
     padding: 20,
     borderWidth: 1,
-    borderColor: '#ccfbf1',
+    borderColor: '#e0e7ff',
     marginBottom: 12,
   },
-  emptyTitle: { fontSize: 16, fontWeight: '700', color: '#134e4a' },
+  emptyTitle: { fontSize: 16, fontWeight: '700', color: '#3730a3' },
   emptySub: { marginTop: 6, fontSize: 13, color: '#64748b', lineHeight: 18 },
   paymentCard: {
     backgroundColor: '#fff',
@@ -302,7 +302,7 @@ const styles = StyleSheet.create({
     padding: 14,
     marginBottom: 10,
     borderWidth: 1,
-    borderColor: '#ccfbf1',
+    borderColor: '#e0e7ff',
   },
   paymentTop: {
     flexDirection: 'row',
@@ -317,7 +317,7 @@ const styles = StyleSheet.create({
   paymentStatus: {
     fontSize: 12,
     fontWeight: '700',
-    color: '#059669',
+    color: '#4f46e5',
     textTransform: 'uppercase',
   },
   paymentMeta: {

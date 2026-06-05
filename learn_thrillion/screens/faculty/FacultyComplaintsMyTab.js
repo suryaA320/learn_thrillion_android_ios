@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+﻿import React, { useCallback, useEffect, useState } from 'react';
 import {
   View,
   Text,
@@ -92,7 +92,7 @@ export default function FacultyComplaintsMyTab({ active, reloadTick }) {
   if (loading && rows.length === 0 && !error) {
     return (
       <View style={styles.centered}>
-        <ActivityIndicator size="large" color="#15803d" />
+        <ActivityIndicator size="large" color="#4f46e5" />
         <Text style={styles.muted}>Loading complaints…</Text>
       </View>
     );
@@ -102,7 +102,7 @@ export default function FacultyComplaintsMyTab({ active, reloadTick }) {
     <ScrollView
       style={styles.scroll}
       contentContainerStyle={styles.scrollContent}
-      refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} tintColor="#15803d" />}
+      refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} tintColor="#4f46e5" />}
     >
       <Text style={styles.hint}>{staffNote}</Text>
 
@@ -211,7 +211,7 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     backgroundColor: '#e5e7eb',
   },
-  filterChipOn: { backgroundColor: '#14532d' },
+  filterChipOn: { backgroundColor: '#3730a3' },
   filterChipTxt: { fontSize: 13, fontWeight: '600', color: '#374151' },
   filterChipTxtOn: { color: '#fff' },
   search: {
@@ -231,7 +231,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#d1fae5',
   },
-  emptyTitle: { fontSize: 17, fontWeight: '700', color: '#14532d' },
+  emptyTitle: { fontSize: 17, fontWeight: '700', color: '#3730a3' },
   emptySub: { marginTop: 6, fontSize: 14, color: '#6b7280' },
   card: {
     backgroundColor: '#fff',
@@ -241,7 +241,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#d1fae5',
   },
-  when: { fontSize: 13, fontWeight: '700', color: '#15803d', marginBottom: 8 },
+  when: { fontSize: 13, fontWeight: '700', color: '#4f46e5', marginBottom: 8 },
   line: { fontSize: 14, color: '#111827', marginBottom: 4 },
   lbl: { color: '#6b7280', fontWeight: '600' },
   detail: { marginTop: 8, fontSize: 15, color: '#1f2937', lineHeight: 22 },
@@ -252,7 +252,7 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingVertical: 12,
     borderRadius: 12,
-    backgroundColor: '#14532d',
+    backgroundColor: '#3730a3',
     alignItems: 'center',
   },
   pgBtnOff: { backgroundColor: '#d1d5db' },

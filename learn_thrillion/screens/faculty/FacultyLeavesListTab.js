@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+﻿import React, { useCallback, useEffect, useState } from 'react';
 import {
   View,
   Text,
@@ -158,7 +158,7 @@ export default function FacultyLeavesListTab({ active, reloadTick }) {
   if (loading && rows.length === 0 && !error) {
     return (
       <View style={styles.centered}>
-        <ActivityIndicator size="large" color="#15803d" />
+        <ActivityIndicator size="large" color="#4f46e5" />
         <Text style={styles.muted}>Loading requests…</Text>
       </View>
     );
@@ -295,12 +295,12 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     paddingVertical: 6,
     borderRadius: 20,
-    backgroundColor: '#dcfce7',
+    backgroundColor: '#e0e7ff',
     borderWidth: 1,
-    borderColor: '#bbf7d0',
+    borderColor: '#c7d2fe',
   },
-  filterChipActive: { backgroundColor: '#15803d', borderColor: '#15803d' },
-  filterText: { fontSize: 13, color: '#14532d', fontWeight: '600' },
+  filterChipActive: { backgroundColor: '#4f46e5', borderColor: '#4f46e5' },
+  filterText: { fontSize: 13, color: '#3730a3', fontWeight: '600' },
   filterTextActive: { color: '#fff' },
   scroll: { padding: 12, paddingBottom: 24 },
   rowCard: {
@@ -316,10 +316,10 @@ const styles = StyleSheet.create({
   rowDates: { fontSize: 15, fontWeight: '700', color: '#0f172a', flex: 1 },
   statusChip: { borderRadius: 8, paddingHorizontal: 8, paddingVertical: 4 },
   statusText: { fontSize: 12, fontWeight: '700' },
-  rowType: { fontSize: 13, color: '#15803d', fontWeight: '600', marginTop: 6 },
+  rowType: { fontSize: 13, color: '#4f46e5', fontWeight: '600', marginTop: 6 },
   rowMeta: { fontSize: 12, color: '#64748b', marginTop: 4 },
   rowReason: { fontSize: 14, color: '#334155', marginTop: 8 },
-  tapHint: { fontSize: 12, color: '#15803d', marginTop: 8, fontWeight: '600' },
+  tapHint: { fontSize: 12, color: '#4f46e5', marginTop: 8, fontWeight: '600' },
   modalOverlay: {
     flex: 1,
     backgroundColor: 'rgba(0,0,0,0.45)',
@@ -332,7 +332,7 @@ const styles = StyleSheet.create({
     padding: 20,
     maxHeight: '85%',
   },
-  modalTitle: { fontSize: 18, fontWeight: '700', color: '#14532d', marginBottom: 12 },
+  modalTitle: { fontSize: 18, fontWeight: '700', color: '#3730a3', marginBottom: 12 },
   fieldLabel: { fontSize: 14, fontWeight: '600', color: '#334155', marginBottom: 6, marginTop: 8 },
   dropdown: {
     borderWidth: 1,
@@ -364,7 +364,7 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingVertical: 12,
     borderRadius: 10,
-    backgroundColor: '#15803d',
+    backgroundColor: '#4f46e5',
     alignItems: 'center',
   },
   saveText: { color: '#fff', fontWeight: '700' },

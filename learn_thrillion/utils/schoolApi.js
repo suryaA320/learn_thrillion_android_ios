@@ -108,6 +108,47 @@ export function deleteFacultyHomework(homeworkId) {
   return api.delete(apiOriginPath(`/faculty/homework/${id}/`)).then((r) => r.data);
 }
 
+export function fetchStudyMaterial(params = {}) {
+  return api.get(apiOriginPath('/school/study-material/'), { params }).then((r) => r.data);
+}
+
+export function createStudyMaterialWritten(body) {
+  return api
+    .post(apiOriginPath('/school/study-material/'), { content_type: 'written', ...body })
+    .then((r) => r.data);
+}
+
+export function createStudyMaterialUpload(formData) {
+  return api
+    .post(apiOriginPath('/school/study-material/'), formData, {
+      headers: { 'Content-Type': 'multipart/form-data' },
+    })
+    .then((r) => r.data);
+}
+
+export function updateStudyMaterialWritten(id, body) {
+  const pk = encodeURIComponent(String(id || '').trim());
+  return api.put(apiOriginPath(`/school/study-material/${pk}/`), body).then((r) => r.data);
+}
+
+export function updateStudyMaterialUpload(id, formData) {
+  const pk = encodeURIComponent(String(id || '').trim());
+  return api
+    .put(apiOriginPath(`/school/study-material/${pk}/`), formData, {
+      headers: { 'Content-Type': 'multipart/form-data' },
+    })
+    .then((r) => r.data);
+}
+
+export function deleteStudyMaterial(id) {
+  const pk = encodeURIComponent(String(id || '').trim());
+  return api.delete(apiOriginPath(`/school/study-material/${pk}/`)).then((r) => r.data);
+}
+
+export function fetchStudentStudyMaterial(params = {}) {
+  return api.get(apiOriginPath('/student/study-material/'), { params }).then((r) => r.data);
+}
+
 /** Student portal (`role=6`) — school-scoped via matched `AddStudent` email + school. */
 export function fetchStudentPortalContext() {
   return api.get(apiOriginPath('/student/me/')).then((r) => r.data);

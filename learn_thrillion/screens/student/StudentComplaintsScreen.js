@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+﻿import React, { useCallback, useState } from 'react';
 import {
   View,
   Text,
@@ -85,7 +85,7 @@ export default function StudentComplaintsScreen() {
         <View style={styles.flex}>
           <TopNavigationStylish title="Complaints" />
           <View style={styles.centered}>
-            <ActivityIndicator size="large" color="#15803d" />
+            <ActivityIndicator size="large" color="#4f46e5" />
             <Text style={styles.muted}>
               {waitingProfile ? 'Loading your student profile…' : 'Loading your complaints…'}
             </Text>
@@ -103,7 +103,7 @@ export default function StudentComplaintsScreen() {
         <ScrollView
           style={styles.scroll}
           contentContainerStyle={styles.scrollContent}
-          refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} tintColor="#15803d" />}
+          refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} tintColor="#4f46e5" />}
         >
           <Text style={styles.hint}>Complaints linked to your student record at this school.</Text>
           {banner ? <Text style={styles.banner}>{banner}</Text> : null}
@@ -130,7 +130,7 @@ export default function StudentComplaintsScreen() {
 }
 
 const styles = StyleSheet.create({
-  safe: { flex: 1, backgroundColor: '#ecfdf5' },
+  safe: { flex: 1, backgroundColor: '#eef2ff' },
   flex: { flex: 1 },
   scroll: { flex: 1 },
   scrollContent: { paddingHorizontal: 16, paddingBottom: 120 },
@@ -152,7 +152,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#e5e7eb',
   },
-  emptyTitle: { fontSize: 16, fontWeight: '700', color: '#14532d' },
+  emptyTitle: { fontSize: 16, fontWeight: '700', color: '#3730a3' },
   emptySub: { marginTop: 6, fontSize: 13, color: '#6b7280', lineHeight: 18 },
   card: {
     backgroundColor: '#fff',
@@ -162,7 +162,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#e5e7eb',
   },
-  subject: { fontSize: 16, fontWeight: '800', color: '#14532d' },
+  subject: { fontSize: 16, fontWeight: '800', color: '#3730a3' },
   meta: { marginTop: 6, fontSize: 12, color: '#6b7280' },
   body: { marginTop: 10, fontSize: 14, color: '#374151', lineHeight: 20 },
 });

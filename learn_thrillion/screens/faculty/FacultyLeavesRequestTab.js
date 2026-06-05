@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+﻿import React, { useCallback, useEffect, useRef, useState } from 'react';
 import {
   View,
   Text,
@@ -151,7 +151,7 @@ export default function FacultyLeavesRequestTab({ onSuccess }) {
         <View style={styles.card}>
           <Text style={styles.cardTitle}>Leave balance</Text>
           {summaryLoading ? (
-            <ActivityIndicator color="#15803d" style={{ marginVertical: 16 }} />
+            <ActivityIndicator color="#4f46e5" style={{ marginVertical: 16 }} />
           ) : (
             <>
               {summary?.detail ? (
@@ -260,9 +260,9 @@ const styles = StyleSheet.create({
     padding: 16,
     marginBottom: 12,
     borderWidth: 1,
-    borderColor: '#bbf7d0',
+    borderColor: '#c7d2fe',
   },
-  cardTitle: { fontSize: 17, fontWeight: '700', color: '#14532d', marginBottom: 12 },
+  cardTitle: { fontSize: 17, fontWeight: '700', color: '#3730a3', marginBottom: 12 },
   warn: { fontSize: 13, color: '#b45309', marginBottom: 8 },
   ayLabel: { fontSize: 13, color: '#64748b', marginBottom: 10 },
   statGrid: { flexDirection: 'row', flexWrap: 'wrap', gap: 8 },
@@ -274,7 +274,7 @@ const styles = StyleSheet.create({
   },
   statTotal: { backgroundColor: '#dbeafe' },
   statAvailed: { backgroundColor: '#ffedd5' },
-  statBalance: { backgroundColor: '#dcfce7' },
+  statBalance: { backgroundColor: '#e0e7ff' },
   statPending: { backgroundColor: '#f3e8ff' },
   statLabel: { fontSize: 12, color: '#475569', fontWeight: '600' },
   statValue: { fontSize: 22, fontWeight: '800', color: '#0f172a', marginTop: 4 },
@@ -305,7 +305,7 @@ const styles = StyleSheet.create({
   },
   submitBtn: {
     marginTop: 16,
-    backgroundColor: '#15803d',
+    backgroundColor: '#4f46e5',
     borderRadius: 12,
     paddingVertical: 14,
     alignItems: 'center',

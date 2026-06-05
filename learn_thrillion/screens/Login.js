@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import {
   View,
   Text,
@@ -161,7 +161,7 @@ export default Login;
 const styles = StyleSheet.create({
   safe: {
     flex: 1,
-    backgroundColor: '#14532d',
+    backgroundColor: '#3730a3',
   },
   root: {
     flex: 1,
@@ -175,7 +175,7 @@ const styles = StyleSheet.create({
     width: 40,
     height: 4,
     borderRadius: 2,
-    backgroundColor: '#86efac',
+    backgroundColor: '#a5b4fc',
     marginBottom: 20,
     opacity: 0.95,
   },
@@ -190,7 +190,7 @@ const styles = StyleSheet.create({
   heroTitle: {
     fontSize: 32,
     fontWeight: '800',
-    color: '#f0fdf4',
+    color: '#f5f3ff',
     letterSpacing: -0.8,
   },
   heroSubtitle: {
@@ -288,17 +288,17 @@ const styles = StyleSheet.create({
   togglePwText: {
     fontSize: 14,
     fontWeight: '700',
-    color: '#15803d',
+    color: '#4f46e5',
   },
   primaryBtn: {
     marginTop: 26,
-    backgroundColor: '#15803d',
+    backgroundColor: '#4f46e5',
     borderRadius: 14,
     paddingVertical: 16,
     alignItems: 'center',
     justifyContent: 'center',
     minHeight: 52,
-    shadowColor: '#14532d',
+    shadowColor: '#3730a3',
     shadowOffset: { width: 0, height: 6 },
     shadowOpacity: 0.35,
     shadowRadius: 10,
