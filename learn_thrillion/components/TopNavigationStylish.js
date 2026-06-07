@@ -104,14 +104,14 @@ export default function TopNavigationStylish({ title, showBack, onBack } = {}) {
 const styles = StyleSheet.create({
   navStyles: {
     height: 60,
-    backgroundColor: 'white',
-    borderRadius: 35,
-    margin: 10,
+    backgroundColor: 'transparent',
+    marginHorizontal: 10,
+    marginTop: 10,
+    marginBottom: 4,
     paddingHorizontal: 10,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    elevation: 5,
   },
   childContent: {
     justifyContent: 'center',

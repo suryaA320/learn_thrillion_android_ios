@@ -12,6 +12,8 @@ import FacultyStack from './navigation/FacultyStack';
 import ParentStack from './navigation/ParentStack';
 import StudentStack from './navigation/StudentStack';
 import Login from './screens/Login';
+import ForgotPassword from './screens/ForgotPassword';
+import ResetPassword from './screens/ResetPassword';
 import UnsupportedRole from './screens/UnsupportedRole';
 
 const Stack = createNativeStackNavigator();
@@ -32,6 +34,8 @@ function AppNavigator() {
     return (
       <Stack.Navigator screenOptions={{ headerShown: false }}>
         <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen name="ForgotPassword" component={ForgotPassword} />
+        <Stack.Screen name="ResetPassword" component={ResetPassword} />
       </Stack.Navigator>
     );
   }

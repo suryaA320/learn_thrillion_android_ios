@@ -102,6 +102,7 @@ const styles = StyleSheet.create({
   mainContent: {
     backgroundColor: '#f5f3ff',
     flex: 1,
+    paddingBottom: 96,
   },
   banner: {
     minHeight: 100,
