@@ -20,4 +20,9 @@ export function navigateFromNotification(data) {
     navigationRef.navigate('FacultyLeaves');
     return;
   }
+  if (kind === 'fee_reminder') {
+    navigationRef.navigate('ParentFeeReminders', {
+      reminderId: data.fee_reminder_id || null,
+    });
+  }
 }

@@ -6,9 +6,10 @@ import {
   ScrollView,
   ActivityIndicator,
   RefreshControl,
+  TouchableOpacity,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { useFocusEffect } from '@react-navigation/native';
+import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import TopNavigationStylish from '../../components/TopNavigationStylish';
 import ParentBottomNav from '../../components/ParentBottomNav';
 import ParentChildPicker from '../../components/ParentChildPicker';
@@ -58,6 +59,7 @@ function FeeRow({ label, value, highlight = false, danger = false }) {
 }
 
 export default function ParentFeesScreen() {
+  const navigation = useNavigation();
   const { selectedStudentId, loading: portalLoading, error: portalError } = useParentPortal();
   const [loading, setLoading] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
@@ -143,6 +145,17 @@ export default function ParentFeesScreen() {
                     <Text style={styles.heroYear}>Academic year: {feeData.academic_year}</Text>
                   ) : null}
                 </View>
+
+                <TouchableOpacity
+                  style={styles.remindersLink}
+                  activeOpacity={0.85}
+                  onPress={() => navigation.navigate('ParentFeeReminders')}
+                >
+                  <Text style={styles.remindersLinkTitle}>Fee reminders</Text>
+                  <Text style={styles.remindersLinkSub}>
+                    View reminders sent by your school and mark them as read.
+                  </Text>
+                </TouchableOpacity>
 
                 <View style={styles.summaryCard}>
                   <Text style={styles.sectionTitle}>Fee summary</Text>
@@ -336,5 +349,24 @@ const styles = StyleSheet.create({
     fontSize: 13,
     color: '#374151',
     lineHeight: 18,
+  },
+  remindersLink: {
+    backgroundColor: '#fff',
+    borderRadius: 14,
+    padding: 14,
+    marginBottom: 14,
+    borderWidth: 1,
+    borderColor: '#c7d2fe',
+  },
+  remindersLinkTitle: {
+    fontSize: 15,
+    fontWeight: '700',
+    color: '#4338ca',
+  },
+  remindersLinkSub: {
+    marginTop: 4,
+    fontSize: 12,
+    color: '#64748b',
+    lineHeight: 17,
   },
 });

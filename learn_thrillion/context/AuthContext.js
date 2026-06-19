@@ -10,7 +10,8 @@ import {
 } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import axios from 'axios';
-import api, { API_ORIGIN } from '../utils/api_endpoints/api';
+import { API_BASE_URL } from '../config/api';
+import api from '../utils/api_endpoints/api';
 import {
   clearStoredSession,
   ensureFreshAccessToken,
@@ -78,7 +79,7 @@ export function AuthProvider({ children }) {
   const performSignOut = useCallback(async () => {
     try {
       const access = await getStoredAccessToken();
-      await axios.post(`${API_ORIGIN}/logout/`, {}, { timeout: 15000, headers: access ? { Authorization: `Bearer ${access}` } : {} });
+      await axios.post(`${API_BASE_URL}logout/`, {}, { timeout: 15000, headers: access ? { Authorization: `Bearer ${access}` } : {} });
     } catch {
       /* ignore */
     }

@@ -108,6 +108,11 @@ export function NotificationProvider({ children }) {
         notif.kind === 'faculty_leave_request'
       ) {
         navigateFromNotification({ kind: notif.kind });
+      } else if (notif.kind === 'fee_reminder') {
+        navigateFromNotification({
+          kind: 'fee_reminder',
+          fee_reminder_id: notif.fee_reminder_id,
+        });
       }
     },
     [closePanel, loadUnreadList, refreshUnread]

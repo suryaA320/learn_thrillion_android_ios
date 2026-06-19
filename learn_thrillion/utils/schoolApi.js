@@ -1,10 +1,10 @@
-import api, { API_ORIGIN } from './api_endpoints/api';
+import api from './api_endpoints/api';
 
-/** Django routes live on API origin root (not under `/api/`). */
+/** Path relative to axios `baseURL` (`…/api/`), matching Django `path("api/…")` routes. */
 export function apiOriginPath(path) {
-  const base = String(API_ORIGIN || '').replace(/\/$/, '');
-  const p = path.startsWith('/') ? path : `/${path}`;
-  return `${base}${p}`;
+  const p = String(path || '').trim();
+  if (!p) return '';
+  return p.startsWith('/') ? p.slice(1) : p;
 }
 
 export function fetchSchoolClasses({ forAttendance = false } = {}) {
@@ -228,6 +228,21 @@ export function fetchParentFees(studentId) {
     .get(apiOriginPath('/parent/fees/'), {
       params: { student_id: String(studentId) },
     })
+    .then((r) => r.data);
+}
+
+export function fetchParentFeeReminders(studentId) {
+  return api
+    .get(apiOriginPath('/parent/fee-reminders/'), {
+      params: { student_id: String(studentId) },
+    })
+    .then((r) => r.data);
+}
+
+export function markParentFeeReminderRead(reminderId) {
+  const id = encodeURIComponent(String(reminderId || '').trim());
+  return api
+    .post(apiOriginPath(`/parent/fee-reminders/${id}/read/`))
     .then((r) => r.data);
 }
 

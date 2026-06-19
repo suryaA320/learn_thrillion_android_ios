@@ -6,6 +6,7 @@ import ParentDiaryScreen from '../screens/parent/ParentDiaryScreen';
 import ParentComplaintsScreen from '../screens/parent/ParentComplaintsScreen';
 import ParentProgressScreen from '../screens/parent/ParentProgressScreen';
 import ParentFeesScreen from '../screens/parent/ParentFeesScreen';
+import ParentFeeRemindersScreen from '../screens/parent/ParentFeeRemindersScreen';
 import ParentProfile from '../screens/parent/ParentProfile';
 
 const Stack = createNativeStackNavigator();
@@ -24,6 +25,11 @@ export default function ParentStack() {
       <Stack.Navigator initialRouteName="ParentHome" screenOptions={screenOptions}>
         <Stack.Screen name="ParentHome" component={ParentHome} options={{ headerShown: false }} />
         <Stack.Screen name="ParentFees" component={ParentFeesScreen} options={{ headerShown: false }} />
+        <Stack.Screen
+          name="ParentFeeReminders"
+          component={ParentFeeRemindersScreen}
+          options={{ headerShown: false }}
+        />
         <Stack.Screen name="ParentDiary" component={ParentDiaryScreen} options={{ headerShown: false }} />
         <Stack.Screen
           name="ParentComplaints"
