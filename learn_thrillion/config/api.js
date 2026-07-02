@@ -55,9 +55,12 @@ const emulatorFallback = Platform.select({
 });
 
 /**
- * 1) `.env` → `EXPO_PUBLIC_API_ORIGIN=http://YOUR_PC_IP:8000` (restart Expo)
+ * 1) `.env` → `EXPO_PUBLIC_API_ORIGIN=...` (restart Expo)
  * 2) Else Expo bundler host (Expo Go on a phone, same Wi‑Fi)
  * 3) Else emulator loopback defaults
+ *
+ * EAS preview/production builds use eas.json env (same as learn_thrillion_ui
+ * REACT_APP_API_BASE_URL → https://staging.learnthrillion.com).
  */
 export const API_ORIGIN = fromEnv || fromBundler || emulatorFallback;
 

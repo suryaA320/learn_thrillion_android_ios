@@ -12,6 +12,7 @@ const ROUTES = {
   studyMaterial: 'FacultyStudyMaterial',
   attendance: 'FacultyAttendance',
   planning: 'FacultyPlanning',
+  syllabus: 'FacultySyllabusPlanning',
   complaints: 'FacultyComplaints',
 };
 
@@ -21,6 +22,7 @@ const NAV_ITEMS = [
   { key: 'studyMaterial', icon: 'book-open-page-variant', label: 'Notes', route: ROUTES.studyMaterial },
   { key: 'attendance', icon: 'chart-box', label: 'Attendance', route: ROUTES.attendance },
   { key: 'planning', icon: 'notebook-edit-outline', label: 'Planning', route: ROUTES.planning },
+  { key: 'syllabus', icon: 'book-education-outline', label: 'Syllabus', route: ROUTES.syllabus },
   { key: 'complaints', icon: 'balcony', label: 'Complaints', route: ROUTES.complaints },
 ];
 

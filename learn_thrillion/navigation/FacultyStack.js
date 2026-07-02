@@ -4,6 +4,7 @@ import FacultyDashboard from '../screens/faculty/FacultyDashboard';
 import FacultyAttendance from '../screens/faculty/FacultyAttendance';
 import FacultyComplaints from '../screens/faculty/FacultyComplaints';
 import FacultyPlanning from '../screens/faculty/FacultyPlanning';
+import FacultySyllabusPlanning from '../screens/faculty/FacultySyllabusPlanning';
 import FacultyAddHomework from '../screens/faculty/FacultyAddHomework';
 import FacultyStudyMaterial from '../screens/faculty/FacultyStudyMaterial';
 import FacultyProfile from '../screens/faculty/FacultyProfile';
@@ -27,6 +28,7 @@ export default function FacultyStack() {
       <Stack.Screen name="FacultyAttendance" component={FacultyAttendance} options={{ headerShown: false }} />
       <Stack.Screen name="FacultyComplaints" component={FacultyComplaints} options={{ headerShown: false }} />
       <Stack.Screen name="FacultyPlanning" component={FacultyPlanning} options={{ headerShown: false }} />
+      <Stack.Screen name="FacultySyllabusPlanning" component={FacultySyllabusPlanning} options={{ headerShown: false }} />
       <Stack.Screen name="FacultyHomework" component={FacultyAddHomework} options={{ headerShown: false }} />
       <Stack.Screen name="FacultyStudyMaterial" component={FacultyStudyMaterial} options={{ headerShown: false }} />
       <Stack.Screen name="FacultyProfile" component={FacultyProfile} options={{ headerShown: false }} />

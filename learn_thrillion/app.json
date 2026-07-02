@@ -15,13 +15,19 @@
     "ios": {
       "supportsTablet": true,
       "infoPlist": {
-        "UIBackgroundModes": ["remote-notification"]
+        "UIBackgroundModes": [
+          "remote-notification"
+        ]
       }
     },
     "android": {
+      "package": "com.learnthrillion.app",
+      "versionCode": 1,
       "usesCleartextTraffic": true,
       "softwareKeyboardLayoutMode": "resize",
-      "permissions": ["POST_NOTIFICATIONS"],
+      "permissions": [
+        "POST_NOTIFICATIONS"
+      ],
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
@@ -43,8 +49,9 @@
     ],
     "extra": {
       "eas": {
-        "projectId": ""
+        "projectId": "c1ea2bee-f5c5-4a79-8334-1baed7d35c9e"
       }
-    }
+    },
+    "owner": "suryabouncy"
   }
 }

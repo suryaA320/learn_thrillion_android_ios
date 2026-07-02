@@ -84,6 +84,36 @@ export function updateFacultyActionPlan(planId, body) {
   return api.put(apiOriginPath(`/faculty/action-plans/${id}/`), body).then((r) => r.data);
 }
 
+export function fetchFacultySyllabusPlans(params = {}) {
+  return api.get(apiOriginPath('/faculty/syllabus-plans/'), { params }).then((r) => r.data);
+}
+
+export function fetchFacultySyllabusPlanDetail(planId) {
+  const id = encodeURIComponent(String(planId || '').trim());
+  return api.get(apiOriginPath(`/faculty/syllabus-plans/${id}/`)).then((r) => r.data);
+}
+
+export function createFacultySyllabusPlan(body) {
+  return api.post(apiOriginPath('/faculty/syllabus-plans/'), body).then((r) => r.data);
+}
+
+export function updateFacultySyllabusPlan(planId, body) {
+  const id = encodeURIComponent(String(planId || '').trim());
+  return api.put(apiOriginPath(`/faculty/syllabus-plans/${id}/`), body).then((r) => r.data);
+}
+
+export function deleteFacultySyllabusPlan(planId) {
+  const id = encodeURIComponent(String(planId || '').trim());
+  return api.delete(apiOriginPath(`/faculty/syllabus-plans/${id}/`)).then((r) => r.data);
+}
+
+export function addFacultySyllabusSubtopicComment(subtopicId, comment) {
+  const id = encodeURIComponent(String(subtopicId || '').trim());
+  return api
+    .post(apiOriginPath(`/faculty/syllabus-subtopics/${id}/comments/`), { comment })
+    .then((r) => r.data);
+}
+
 /** GET `/subjects/view/` — subjects for the logged-in user's school. */
 export function fetchSchoolSubjects({ assignedOnly = false } = {}) {
   const params = assignedOnly ? { assigned_to_me: 'true' } : {};
