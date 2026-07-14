@@ -38,6 +38,7 @@ function buildUserFromStatus(data, prev = {}) {
     school_id: data.school_id ?? prev.school_id ?? null,
     school_name: data.school_name ?? prev.school_name ?? null,
     school: data.school_id ?? prev.school ?? null,
+    profile_image_url: data.profile_image_url ?? prev.profile_image_url ?? null,
   };
 }
 
@@ -116,6 +117,27 @@ export function AuthProvider({ children }) {
     setUser(userPayload);
   }, []);
 
+  const patchUser = useCallback(async (partial) => {
+    if (!partial || typeof partial !== 'object') return null;
+    let next = null;
+    setUser((prev) => {
+      next = { ...(prev || {}), ...partial };
+      return next;
+    });
+    // Persist after computing merge (updater runs sync for this assignment)
+    const raw = await AsyncStorage.getItem(AUTH_KEYS.user);
+    let base = {};
+    try {
+      base = raw ? JSON.parse(raw) : {};
+    } catch {
+      base = {};
+    }
+    const merged = { ...base, ...partial };
+    await AsyncStorage.setItem(AUTH_KEYS.user, JSON.stringify(merged));
+    setUser(merged);
+    return merged;
+  }, []);
+
   useEffect(() => {
     const stopProactive = startProactiveTokenRefresh();
     const unregisterSession = registerSessionExpiredHandler(async () => {
@@ -166,8 +188,8 @@ export function AuthProvider({ children }) {
   }, []);
 
   const value = useMemo(
-    () => ({ user, role: user?.role, ready, signIn, signOut, refreshUser }),
-    [user, ready, signIn, signOut, refreshUser]
+    () => ({ user, role: user?.role, ready, signIn, signOut, refreshUser, patchUser }),
+    [user, ready, signIn, signOut, refreshUser, patchUser]
   );
   return (
     <AuthContext.Provider value={value}>

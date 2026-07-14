@@ -38,6 +38,7 @@ export default function FacultyDashboard() {
   );
 
   const openLeaves = () => navigation.navigate('FacultyLeaves');
+  const openMarks = () => navigation.navigate('FacultyMarks');
 
   return (
     <SafeAreaView style={{ flex: 1 }} edges={['top', 'left', 'right']}>
@@ -87,7 +88,17 @@ export default function FacultyDashboard() {
               <Text style={styles.cardCta}>Tap to manage →</Text>
             </TouchableOpacity>
             <View style={styles.rightCol}>
-              <View style={styles.rightCardTop} />
+              <TouchableOpacity
+                style={styles.rightCardTop}
+                onPress={openMarks}
+                activeOpacity={0.88}
+                accessibilityRole="button"
+                accessibilityLabel="Enter marks"
+              >
+                <MaterialCommunityIcons name="file-document-edit-outline" size={26} color="#3730a3" />
+                <Text style={styles.rightCardTitle}>Enter marks</Text>
+                <Text style={styles.rightCardHint}>Exam scores</Text>
+              </TouchableOpacity>
               <View style={styles.rightCardBottom} />
             </View>
           </View>
@@ -199,7 +210,24 @@ const styles = StyleSheet.create({
     flex: 1,
     marginBottom: 6,
     borderRadius: 24,
-    backgroundColor: '#4338ca',
+    backgroundColor: '#e0e7ff',
+    borderWidth: 1,
+    borderColor: '#c7d2fe',
+    padding: 14,
+    justifyContent: 'center',
+    alignItems: 'flex-start',
+  },
+  rightCardTitle: {
+    marginTop: 8,
+    fontSize: 15,
+    fontWeight: '800',
+    color: '#3730a3',
+  },
+  rightCardHint: {
+    marginTop: 2,
+    fontSize: 12,
+    color: '#6366f1',
+    fontWeight: '600',
   },
   rightCardBottom: {
     flex: 1,

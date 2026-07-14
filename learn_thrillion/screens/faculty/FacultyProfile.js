@@ -3,7 +3,6 @@ import {
   View,
   Text,
   StyleSheet,
-  Image,
   ScrollView,
   RefreshControl,
   ActivityIndicator,
@@ -12,6 +11,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { useFocusEffect } from '@react-navigation/native';
 import TopNavigationStylish from '../../components/TopNavigationStylish';
 import FacultyBottomNav from '../../components/faculty/FacultyBottomNav';
+import ProfilePhotoButton from '../../components/ProfilePhotoButton';
 import { useAuth } from '../../context/AuthContext';
 import { getRoleLabel } from '../../constants/roles';
 
@@ -28,7 +28,7 @@ function Row({ label, value }) {
 }
 
 export default function FacultyProfile() {
-  const { user, refreshUser } = useAuth();
+  const { user, refreshUser, patchUser } = useAuth();
   const [refreshing, setRefreshing] = useState(false);
   const [banner, setBanner] = useState('');
 
@@ -57,6 +57,17 @@ export default function FacultyProfile() {
       setRefreshing(false);
     }
   }, [load]);
+
+  const onPhotoUploaded = useCallback(
+    async ({ profile_image_url, user: apiUser }) => {
+      await patchUser({
+        ...(apiUser || {}),
+        profile_image_url: profile_image_url ?? apiUser?.profile_image_url ?? null,
+      });
+      setBanner('Profile photo updated.');
+    },
+    [patchUser]
+  );
 
   const displayName =
     [user?.first_name, user?.last_name].filter((s) => s && String(s).trim()).join(' ') ||
@@ -95,7 +106,12 @@ export default function FacultyProfile() {
           {banner ? <Text style={styles.banner}>{banner}</Text> : null}
 
           <View style={styles.hero}>
-            <Image source={require('../../assets/FacultyAvatar.png')} style={styles.avatar} />
+            <ProfilePhotoButton
+              uri={user.profile_image_url}
+              size={96}
+              onUploaded={onPhotoUploaded}
+            />
+            <Text style={styles.hint}>Tap photo to change</Text>
             <Text style={styles.name}>{displayName}</Text>
             <View style={[styles.statusBadge, statusTone]}>
               <Text style={styles.statusBadgeText}>{statusLabel}</Text>
@@ -154,12 +170,11 @@ const styles = StyleSheet.create({
     paddingVertical: 20,
     marginBottom: 8,
   },
-  avatar: {
-    width: 96,
-    height: 96,
-    borderRadius: 48,
-    borderWidth: 3,
-    borderColor: '#c7d2fe',
+  hint: {
+    marginTop: 8,
+    fontSize: 12,
+    color: '#6366f1',
+    fontWeight: '600',
   },
   name: {
     marginTop: 14,

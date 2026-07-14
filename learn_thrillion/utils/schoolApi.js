@@ -297,3 +297,29 @@ export function updateFacultyLeaveRequest(requestId, body) {
   const id = encodeURIComponent(String(requestId || '').trim());
   return api.patch(apiOriginPath(`/faculty/leave-requests/${id}/`), body).then((r) => r.data);
 }
+
+/** School exams (`GET /examinations/view/`). */
+export function fetchSchoolExaminations() {
+  return api.get(apiOriginPath('/examinations/view/')).then((r) => {
+    const d = r.data;
+    if (Array.isArray(d?.data)) return d.data;
+    if (Array.isArray(d?.results)) return d.results;
+    if (Array.isArray(d)) return d;
+    return [];
+  });
+}
+
+/**
+ * Faculty marks grid (`GET /faculty/marks-sheet-data/`).
+ * Params: academic_year, class_id, section_id, exam_id
+ */
+export function fetchFacultyMarksSheetData(params) {
+  return api
+    .get(apiOriginPath('/faculty/marks-sheet-data/'), { params })
+    .then((r) => r.data);
+}
+
+/** Save marks (`POST /student-marks/bulk-create/`) — body is an array. */
+export function saveStudentMarksBulk(payload) {
+  return api.post(apiOriginPath('/student-marks/bulk-create/'), payload).then((r) => r.data);
+}

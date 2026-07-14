@@ -9,6 +9,7 @@ import FacultyAddHomework from '../screens/faculty/FacultyAddHomework';
 import FacultyStudyMaterial from '../screens/faculty/FacultyStudyMaterial';
 import FacultyProfile from '../screens/faculty/FacultyProfile';
 import FacultyLeaves from '../screens/faculty/FacultyLeaves';
+import FacultyMarksEntry from '../screens/faculty/FacultyMarksEntry';
 
 const Stack = createNativeStackNavigator();
 
@@ -26,6 +27,7 @@ export default function FacultyStack() {
       <Stack.Screen name="FacultyHome" component={FacultyDashboard} options={{ headerShown: false }} />
       <Stack.Screen name="FacultyLeaves" component={FacultyLeaves} options={{ headerShown: false }} />
       <Stack.Screen name="FacultyAttendance" component={FacultyAttendance} options={{ headerShown: false }} />
+      <Stack.Screen name="FacultyMarks" component={FacultyMarksEntry} options={{ headerShown: false }} />
       <Stack.Screen name="FacultyComplaints" component={FacultyComplaints} options={{ headerShown: false }} />
       <Stack.Screen name="FacultyPlanning" component={FacultyPlanning} options={{ headerShown: false }} />
       <Stack.Screen name="FacultySyllabusPlanning" component={FacultySyllabusPlanning} options={{ headerShown: false }} />

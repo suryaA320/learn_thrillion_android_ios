@@ -9,13 +9,16 @@ import {
   ActivityIndicator,
   KeyboardAvoidingView,
   Platform,
+  Alert,
 } from 'react-native';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { StatusBar } from 'expo-status-bar';
 import { useNavigation } from '@react-navigation/native';
 import api from '../utils/api_endpoints/api';
+import { API_BASE_URL, API_ORIGIN, API_ORIGIN_SOURCE } from '../config/api';
 import { useAuth } from '../context/AuthContext';
 import { formatLoginApiError } from '../utils/loginErrorMessage';
+import { buildLoginDebugDetails } from '../utils/loginDebugDetails';
 
 /** Relative to axios `baseURL` …/api/ — same as Django `path("api/token/login/", ...)`. */
 const LOGIN_PATH = 'token/login/';
@@ -28,10 +31,27 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const [debugDetails, setDebugDetails] = useState('');
   const { signIn } = useAuth();
+
+  const showLoginFailure = (err, friendlyMessage) => {
+    const details = buildLoginDebugDetails(err, LOGIN_PATH);
+    setError(friendlyMessage);
+    setDebugDetails(details);
+    Alert.alert('Login failed', friendlyMessage, [
+      { text: 'OK', style: 'cancel' },
+      {
+        text: 'Technical details',
+        onPress: () => {
+          Alert.alert('Login debug', details);
+        },
+      },
+    ]);
+  };
 
   const handleLogin = async () => {
     setError('');
+    setDebugDetails('');
     const trimmedEmail = email.trim();
     if (!trimmedEmail || !password) {
       setError('Enter email and password.');
@@ -58,7 +78,7 @@ const Login = () => {
       }
       await signIn(userPayload, { access, refresh });
     } catch (err) {
-      setError(formatLoginApiError(err));
+      showLoginFailure(err, formatLoginApiError(err));
     } finally {
       setLoading(false);
     }
@@ -90,8 +110,24 @@ const Login = () => {
                 {error ? (
                   <View style={styles.errorBanner} accessibilityLiveRegion="polite">
                     <Text style={styles.errorText}>{error}</Text>
+                    {debugDetails ? (
+                      <Text style={styles.debugText} selectable>
+                        {debugDetails}
+                      </Text>
+                    ) : null}
                   </View>
                 ) : null}
+
+                <View style={styles.apiInfoBanner}>
+                  <Text style={styles.apiInfoLabel}>API (this build)</Text>
+                  <Text style={styles.apiInfoText} selectable>
+                    {API_ORIGIN}
+                  </Text>
+                  <Text style={styles.apiInfoSubtext} selectable>
+                    {API_BASE_URL}
+                  </Text>
+                  <Text style={styles.apiInfoMeta}>Source: {API_ORIGIN_SOURCE}</Text>
+                </View>
 
                 <Text style={styles.label}>Email</Text>
                 <TextInput
@@ -256,6 +292,49 @@ const styles = StyleSheet.create({
     color: '#991b1b',
     fontSize: 13,
     lineHeight: 19,
+  },
+  debugText: {
+    marginTop: 10,
+    paddingTop: 10,
+    borderTopWidth: 1,
+    borderTopColor: '#fecaca',
+    color: '#7f1d1d',
+    fontSize: 11,
+    lineHeight: 16,
+    fontFamily: Platform.OS === 'ios' ? 'Menlo' : 'monospace',
+  },
+  apiInfoBanner: {
+    backgroundColor: '#f8fafc',
+    borderWidth: 1,
+    borderColor: '#e2e8f0',
+    borderRadius: 12,
+    padding: 12,
+    marginBottom: 18,
+  },
+  apiInfoLabel: {
+    fontSize: 11,
+    fontWeight: '800',
+    color: '#64748b',
+    textTransform: 'uppercase',
+    letterSpacing: 0.6,
+    marginBottom: 6,
+  },
+  apiInfoText: {
+    fontSize: 12,
+    fontWeight: '700',
+    color: '#334155',
+  },
+  apiInfoSubtext: {
+    marginTop: 4,
+    fontSize: 11,
+    color: '#64748b',
+    fontFamily: Platform.OS === 'ios' ? 'Menlo' : 'monospace',
+  },
+  apiInfoMeta: {
+    marginTop: 6,
+    fontSize: 10,
+    color: '#94a3b8',
+    fontWeight: '600',
   },
   label: {
     fontSize: 13,

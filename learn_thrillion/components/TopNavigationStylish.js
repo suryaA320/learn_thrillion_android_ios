@@ -40,7 +40,14 @@ export default function TopNavigationStylish({ title, showBack, onBack } = {}) {
           </TouchableOpacity>
         ) : (
           <TouchableOpacity style={styles.childContent} onPress={() => setMenuOpen(!menuOpen)}>
-            <Image source={require('../assets/FacultyAvatar.png')} style={styles.avatarImg} />
+            <Image
+              source={
+                user?.profile_image_url
+                  ? { uri: user.profile_image_url }
+                  : require('../assets/FacultyAvatar.png')
+              }
+              style={styles.avatarImg}
+            />
           </TouchableOpacity>
         )}
 
